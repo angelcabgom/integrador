@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Jomhuria&display=swap');
+
+
+/*Estilos del logo "TrekWikia"*/
+div#tituloCabezera{
+    font-family: 'Jomhuria', serif;
+    font-size: 35px;
+    color: #8B4513;
+}
+
+/*Estilos de la barra de busqueda*/
+#logo {
+    padding: 0px;
+    border: 0px;
+}
+
+
+.search-container {
+    display: flex;
+    align-items: center;
+    background-color: #D9D9D9; 
+    border: 2px solid black;
+    border-radius: 5px;
+    width: 150%;     
+}
+
+.custom-search-bar {
+    border: none;
+    outline: none;
+    padding: 5px;
+    background-color: #D9D9D9; 
+}
+
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+    padding-left: 5%;
+}
+
+/*Estilo de la barra de busqueda cuando se hace clic*/
+.custom-search-bar:focus {
+    outline: none; 
+    background-color: white !important; 
+}
+
+.search-container:focus-within{
+    background-color: white !important;
+}
+
+.custom-search-bar:focus {
+    box-shadow: none;
+   
+}
+
+/*Estilo del "boton" explorar*/
+.custom-navbar-nav{
+    width: 100%;
+}
+
+.custom-dropdown-menu{
+   margin-left: 7%; 
+}
+
+.explore-link {
+    color: #8B4513; /* Change to the desired text color */
+   
+}
+
+.explore-link:hover,
+.explore-link:active,
+.explore-link:focus {
+    text-decoration: underline;
+    color: #8B4513; 
+}
+
+/*Estilos del dropdown menu*/
+.dropdown-menu {
+    border: 1px solid #555;
+    font-size: 16px; 
+    padding: 15px;
+    padding-left: 25px;   
+    width: 500%;    
+}
+
+.dropdown-item {
+    font-size: 14px; 
+    padding: 5px;
+    text-decoration: none;
+}
+
+.dropdown-item:hover{
+    background-color: initial;
+    color: #8B4513;
+}
+
+.dropdown-item a {
+    text-decoration: none; 
+    color: inherit;
+}
+
+.dropdown-item:hover a {
+    text-decoration: underline;
+}
+
+
