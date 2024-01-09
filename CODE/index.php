@@ -18,7 +18,7 @@
     <!-- header -->
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
-            <!-- Logo y nombre navbar -->
+            <!-- Logo y nombre navbarrr -->
             <a href="main.php" class="btn custom-link d-flex align-items-center" id="logo">
                 <div id="tituloCabezera" class="mx-2 my-0">TrekWikia</div>
             </a>
