@@ -65,11 +65,9 @@
                     </li>
                     <ul class="navbar-nav ms-auto">
                         </li>
-                        <!-- Login Button -->
                         <li class="custom-login nav-item mx-5">
                             <a class="nav-link" href="login.php">Login</a>
                         </li>
-                        <!-- Register Button -->
                         <li class="custom-register nav-item mx-2">
                             <a class="nav-link" href="register.php">Register</a>
                         </li>

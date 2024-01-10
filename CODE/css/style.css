@@ -105,6 +105,8 @@ div#tituloCabezera{
     text-decoration: underline;
 }
 
+
+/*Estilos de headerFalseLogin*/
 /*Estilos de botones login y register*/
 .custom-login a{
     color: #8B4513;
@@ -132,7 +134,14 @@ div#tituloCabezera{
     color: #979797;
 }
 
-/*Aqui termina header1*/
+/*Estilos de headerTrueLogin*/
+/*Estilos del icono de perfil*/
+.custom-material-icon-profile{
+    color: #979797;
+    font-size: 2.5rem;
+    box-sizing: border-box;
+    padding: 0px;
+}
 
 
 
