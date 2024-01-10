@@ -22,7 +22,7 @@
             <a href="main.php" class="btn custom-link d-flex align-items-center" id="logo">
                 <div id="tituloCabezera" class="mx-2 my-0">TrekWikia</div>
             </a>
-            <!-- Items navbarr -->
+            <!-- Items navbar -->
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="custom-navbar-nav navbar-nav align-items-center">
                     <li class="custom-nav-item-search nav-item mx-5">
