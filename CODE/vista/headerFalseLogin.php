@@ -35,7 +35,7 @@
                         <a class="explore-link nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Explora
                         </a>
-                        <!-- Dropdown menu -->
+                        <!-- Dropdown menuu -->
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <div class="row">
                                 <div class="col-6">
