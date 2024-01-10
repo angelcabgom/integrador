@@ -105,4 +105,34 @@ div#tituloCabezera{
     text-decoration: underline;
 }
 
+/*Estilos de botones login y register*/
+.custom-login a{
+    color: #8B4513;
+    font-weight: bold;
+}
+
+.custom-login a:hover{
+    color:#979797;
+    font-weight: bold;
+}
+
+.custom-register{
+    background-color: #8B4513;
+    font-weight: bold;
+    padding: 0rem 2rem;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.custom-register a{
+    color: white;
+}
+
+.custom-register a:hover{
+    color: #979797;
+}
+
+/*Aqui termina header1*/
+
+
 
