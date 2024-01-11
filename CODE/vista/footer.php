@@ -1,19 +1,8 @@
-<footer class="footer mt-auto bg-dark text-white text-center">
-    <div class="container">
-        <div class="row">
-            <div class="col text-start">
-                <span href="#" class="text-white">&copy; Autohaus Leon</span>
-            </div>
-            <div class="col">
-                <span href="#" class="text-white">987 654 321</span>
-            </div>
-            <div class="col">
-                <span href="#" class="text-white">autohausleon@gmail.com</span>
-            </div>
-            <div class="col">
-                <span href="#" class="text-white">Gran Vía de San Marcos, 59, 24001 León</span>
-            </div>
-        </div>
+<footer>
+    <span href="#" class="text-white">&copy; TrekWiki. All rights reserved. Condiciones de uso | Privacidad | Política de cookies</span>
+    <div class="container-imagenes">
+        <img src="img/TwitterIcono.png" alt="First Image">
+        <img id="segundaImagen" src="img/InstagramIcono.png" alt="Second Image">
     </div>
 </footer>
 <!-- Bootstrap JavaScript Libraries -->

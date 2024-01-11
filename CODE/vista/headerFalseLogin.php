@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
     <!-- headerr -->
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
