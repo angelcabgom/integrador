@@ -8,11 +8,18 @@ body {
     margin: 0;
 }
 
+
+/*Ajustes navbar*/
+.custom-navbar{
+    padding: 0px;
+}
+
 /*Estilos del logo "TrekWikia"*/
 div#tituloCabezera{
     font-family: 'Jomhuria', serif;
     font-size: 35px;
     color: #8B4513;
+    padding-top: 0.2em;
 }
 
 /*Estilos de la barra de busqueda*/
