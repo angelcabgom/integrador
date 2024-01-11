@@ -65,7 +65,7 @@ div#tituloCabezera{
 }
 
 .explore-link {
-    color: #8B4513; /* Change to the desired text color */
+    color: #8B4513; 
    
 }
 
@@ -114,8 +114,9 @@ div#tituloCabezera{
 }
 
 .custom-login a:hover{
-    color:#979797;
     font-weight: bold;
+    color: #8B4513;
+    text-decoration: underline;
 }
 
 .custom-register{
@@ -130,8 +131,11 @@ div#tituloCabezera{
     color: white;
 }
 
+.custom-register:hover{
+    background-color: #b76932;
+}
 .custom-register a:hover{
-    color: #979797;
+    color:white;
 }
 
 /*Estilos de headerTrueLogin*/
@@ -144,4 +148,15 @@ div#tituloCabezera{
 }
 
 
+/*Estilos de headerTrueLoginOrg*/
+/*Estilos del nav-link "organizar carreras"*/
+.organizar-link{
+    color: #8B4513;
+}
+
+
+.organizar-link:hover{
+    text-decoration: underline;
+    color: #8B4513;
+}
 
