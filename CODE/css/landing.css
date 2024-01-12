@@ -1,5 +1,45 @@
 main {
+    display: flex;
     background-image: url("../img/FondoLanding.jpg");
     background-size:cover;
     background-position: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.landing-nombre{
+    font-family: 'Jomhuria', serif;
+    font-size: 3em;
+    color: #8B4513;
+    text-align: center;
+    max-height: 3rem;
+}
+
+.landing-eslogan{
+    font-family: 'Jomhuria', serif;
+    font-size: 30px;
+    color: white;
+    text-align: center;
+    height: 5.5rem;
+}
+
+.container-landing-register{
+    background-color: #8B4513;
+    font-weight: bold;
+    padding: 0.5rem 2rem;
+    border-radius: 5px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.container-landing-register a{
+    color: white;
+    text-decoration: none;
+}
+
+.container-landing-register:hover{
+    background-color: #b76932;
+}
+.container-landing-register a:hover{
+    color:white;
 }

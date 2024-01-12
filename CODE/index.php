@@ -65,7 +65,6 @@
                         </ul>
                     </li>
 
-                    <!-- Caambiar el hover se ve horrible -->
                     <ul class="navbar-nav ms-auto">
                         </li>
                         <li class="custom-login nav-item mx-5">
@@ -80,7 +79,13 @@
         </div>
     </nav>
     <main class="flex-grow-1">
-        <img src="" alt="">
+        <div class="container-landing">
+            <div class="landing-nombre">TrekWikia</div>
+            <div class="landing-eslogan">Empieza tu camino aqui</div>
+            <div class="container-landing-register">
+                <a class="link" href="">Register</a>
+            </div>
+        </div>
     </main>
     <footer>
         <span href="#" class="text-white">&copy; TrekWiki. All rights reserved. Condiciones de uso | Privacidad | Política de cookies</span>
