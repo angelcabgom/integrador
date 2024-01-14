@@ -10,7 +10,8 @@ body {
 
 
 /*Ajustes navbar*/
-.custom-navbar{
+
+.navbar-container-principal{
     padding: 0px;
 }
 
@@ -134,22 +135,30 @@ div#tituloCabezera{
 }
 
 .custom-register{
+    display: flex;
     background-color: #8B4513;
     font-weight: bold;
-    padding: 0rem 2rem;
     border-radius: 5px;
+    align-items: center;
+    justify-content: center;
     box-sizing: border-box;
+   
 }
 
 .custom-register a{
     color: white;
+    text-decoration: none;
+    display: block;
+    padding: 0rem 2rem;
 }
 
 .custom-register:hover{
     background-color: #b76932;
 }
+
 .custom-register a:hover{
     color:white;
+   
 }
 
 /*Estilos de headerTrueLogin*/

@@ -26,15 +26,15 @@ main {
 .container-landing-register{
     background-color: #8B4513;
     font-weight: bold;
-    padding: 0.5rem 2rem;
     border-radius: 5px;
     text-align: center;
-    box-sizing: border-box;
 }
 
 .container-landing-register a{
+    display: block;
     color: white;
     text-decoration: none;
+    padding: 0.5rem 2rem;
 }
 
 .container-landing-register:hover{
