@@ -1,5 +1,46 @@
+
+/*Ajustes del contenedor principal y el fondo*/
 main {
+    display: flex;
     background-image: url("../img/FotoRegistro.png");
     background-size: cover;
     background-position: center;
+    justify-content: center;
+}
+
+
+/*Ajustes especificos del contenedor de los inputs*/
+.contenedor-main-registro{
+    display: flex;
+    width: 30%;
+    height: 70%;
+    margin-top: 5%;
+    min-width: 300px;
+    border-radius: 1rem;
+    background-color: rgba(217, 217, 217, 0.46);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/*Ajustes del h2*/
+.contenedor-main-registro h3 {
+    font-weight: bold;
+    color: #8B4513;
+}
+
+
+/*Ajustes de los inputs*/
+.custom-form-group{
+    width: 75%;
+}
+
+.custom-form-control{
+    margin-top: 1rem;
+    font-weight: bold;
+    background-color: #D9D9D9;
+}
+
+.custom-form-control::placeholder{
+    color: #979797;
 }
