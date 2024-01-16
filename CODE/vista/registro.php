@@ -19,6 +19,7 @@ include("headerTrueLogin.php");
                 <input type="password" name="passconf" class="custom-form-control form-control" placeholder="Repetir contraseña">
                 <input type="text" name="localidad" class="custom-form-control form-control" placeholder="Localidad">
                 <div class="container-image-control form-outline">
+                    <span>Foto de perfil</span>
                     <input name="imagen" type="file" class="custom-image-control form-control" accept="image/*" required />
                 </div>
                 <input type="submit" name="enviar" class="custom-submit-control form-control" value="Registrarse">

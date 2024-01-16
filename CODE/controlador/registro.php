@@ -23,6 +23,9 @@
         if ($usuario['password'] != $passConf) {
             header("Location: ../vista/registro.php?mensaje=noCoinciden");
             exit();
+        } else {
+            $pass512 = hash("sha512", $usuario['password']);
+            $usuario['password'] = $pass512;
         }
 
         if (move_uploaded_file($rutaTemporal, $rutaPermanente)) {
