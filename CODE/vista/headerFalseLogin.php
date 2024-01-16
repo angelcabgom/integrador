@@ -31,7 +31,7 @@
     <nav class="navbar-container-principal navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
             <!-- Logo y nombre navbarr -->
-            <a href="main.php" class="btn custom-link d-flex align-items-center" id="logo">
+            <a href="paginaPrincipal.php" class="btn custom-link d-flex align-items-center" id="logo">
                 <div id="tituloCabezera" class="mx-2 my-0">TrekWikia</div>
             </a>
             <!-- Items navbarr -->
@@ -75,16 +75,14 @@
                             </div>
                         </ul>
                     </li>
-
-                    <!-- Caambiar el hover se ve horrible -->
-                    <ul class="navbar-nav ms-auto">
+                    <ul class="login-register-container navbar-nav ms-auto">
                         </li>
                         <li class="custom-login nav-item mx-5">
-                            <a class="nav-link" href="login.php">Login</a>
+                            <a class="link" href="login.php">Login</a>
                         </li>
-                        <li class="custom-register nav-item mx-2">
-                            <a class="nav-link" href="register.php">Register</a>
-                        </li>
+                        <div class="custom-register nav-item mx-2">
+                            <a class="link" href="registro.php">Register</a>
+                        </div>
                     </ul>
                 </ul>
             </div>

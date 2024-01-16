@@ -35,7 +35,7 @@
     <nav class="navbar-container-principal custom-navbar navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
             <!-- Logo y nombre navbar -->
-            <a href="main.php" class="btn custom-link" id="logo">
+            <a href="paginaPrincipal.php" class="btn custom-link" id="logo">
                 <div id="tituloCabezera" class="mx-2 my-0">TrekWikia</div>
             </a>
             <!-- Items navbarr -->
@@ -80,10 +80,10 @@
                         </ul>
                     </li>
 
-                    <ul class="navbar-nav ms-auto">
+                    <ul class="login-register-container navbar-nav ms-auto">
                         </li>
                         <li class="custom-login nav-item mx-5">
-                            <a class="nav-link" href="vista/login.php">Login</a>
+                            <a class="link" href="vista/login.php">Login</a>
                         </li>
                         <div class="custom-register nav-item mx-2">
                             <a class="link" href="vista/registro.php">Register</a>

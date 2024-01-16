@@ -1,0 +1,8 @@
+main {
+    display: flex;
+    background-image: url("../img/enObras.png");
+    background-size:contain;
+    background-repeat: no-repeat; /* Quitar cuando se pueda*/
+    background-position: center;
+    justify-content: center;
+}

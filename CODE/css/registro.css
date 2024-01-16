@@ -88,6 +88,8 @@ main {
     min-width: 75px;
 }
 
+
+/* Todos los ajustes de los enlaces de debajo del form*/
 .custom-link-login{
     display: flex;
     flex-direction: column;
