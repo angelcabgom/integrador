@@ -27,7 +27,7 @@ include("headerTrueLogin.php");
         </form>
         <small class="custom-link-login">
             <p>¿Ya eres miembro?</p>
-            <a href="login.html">Inicie sesion</a>
+            <a href="login.php">Inicie sesion</a>
             <p>Para organizadores</p>
             <a href="login.html">Registro organizadores</a>
         </small>

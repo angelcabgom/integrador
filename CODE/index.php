@@ -83,7 +83,7 @@
                     <ul class="navbar-nav ms-auto">
                         </li>
                         <li class="custom-login nav-item mx-5">
-                            <a class="nav-link" href="login.php">Login</a>
+                            <a class="nav-link" href="vista/login.php">Login</a>
                         </li>
                         <div class="custom-register nav-item mx-2">
                             <a class="link" href="vista/registro.php">Register</a>
