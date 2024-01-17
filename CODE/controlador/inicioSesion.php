@@ -1,20 +1,27 @@
     <?php
 
-    $inputPassword = 'Pa$$w0rd!'; // Example, please validate and sanitize input
+    require("../modelo/funciones.php");
 
-    // Assume $storedHashedPassword is the hashed password retrieved from the database
-    $storedHashedPassword = "$2y$10$2PFlalfa9l.htrFNC9ZeIeM1L92CX98rzg/3M.Sm5.Dp4M9JKXIkq";
 
-    // Validate and sanitize user input before proceeding to password verification
-    // ...
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_REQUEST['enviar'])) {
+        $usernameInput = $_POST['username'];
+        $passwordInput = $_POST['password'];
 
-    // Use password_verify to check if the entered password is correct
-    if (password_verify($inputPassword, $storedHashedPassword)) {
-        // Password is correct
-        echo "Login successful!";
-    } else {
-        // Password is incorrect
-        echo "Incorrect password. Please try again.";
+        if (empty($usernameInput) || empty($passwordInput)) {
+            header("Location: ../vista/login.php?mensaje=faltanDatos");
+            exit();
+        }
+
+        $username = ["username" => $usernameInput];
+
+        /* El usuario tiene que ser un array para las consultas POST*/
+        if (inicioSesion($username, $passwordInput)) {
+            header("Location: ../vista/paginaPrincipal.php");
+            exit();
+        } else {
+            header("Location: ../vista/login.php?mensaje=errorInicioSesion");
+            exit();
+        }
     }
 
 

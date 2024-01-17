@@ -14,11 +14,11 @@ include("headerFalseLogin.php");
 
     <div class="contenedor-main-login">
         <h4>Login</h4>
-        <form class="custom-login-form" action="../controlador/registro.php" enctype="multipart/form-data" method="post">
+        <form class="custom-login-form" action="../controlador/inicioSesion.php" enctype="multipart/form-data" method="post">
             <div class="custom-form-group form-group">
-                <input type="text" name="username" class="custom-form-control form-control" placeholder="Username">
-                <input type="text" name="name" class="custom-form-control form-control" placeholder="Contraseña">
-                <input type="submit" name="enviar" class="custom-submit-control form-control" value="Registrarse">
+                <input type="text" name="username" class="custom-form-control form-control" placeholder="Username" required>
+                <input type="password" name="password" class="custom-form-control form-control" placeholder="Contraseña" required>
+                <input type="submit" name="enviar" class="custom-submit-control form-control" value="Iniciar sesion">
             </div>
         </form>
         <small class="custom-link-login">

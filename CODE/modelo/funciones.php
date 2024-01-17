@@ -13,7 +13,7 @@
     function registroUsuario($usuario)
     {
         try {
-            $url = "http://localhost/integrador/code/servicios/usuarios/usuarios.php";
+            $url = "http://localhost/integrador/code/servicios/usuarios/registro.php";
             $ch = curl_init();
 
             $curlOptions = array(
@@ -29,17 +29,41 @@
             $response = curl_exec($ch);
             curl_close($ch);
 
-            // if ($response) {
-            //     echo "<p>Alumno añadido: $response</p>";
-            // } else {
-            //     echo "<p>No se ha podido añadir el alumno</p>";
-            // }
-
             return true;
         } catch (Exception $e) {
             return false;
         }
-    } 
+    }
+
+    function inicioSesion($username, $passwordInput)
+    {
+        try {
+            $curl = curl_init();
+
+            $curlOptions = [
+                CURLOPT_URL => 'http://localhost/integrador/code/servicios/usuarios/login.php',
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_CUSTOMREQUEST => 'POST',
+                CURLOPT_POSTFIELDS => $username,
+            ];
+
+            curl_setopt_array($curl, $curlOptions);
+
+            $response = curl_exec($curl);
+
+            $responseDecoded = json_decode($response, true);
+
+            curl_close($curl);
+
+            if (password_verify($passwordInput, $responseDecoded['password'])) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception $e) {
+            return false;
+        }
+    }
 
 
     ?>
