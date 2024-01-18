@@ -50,13 +50,12 @@
             curl_setopt_array($curl, $curlOptions);
 
             $response = curl_exec($curl);
-
             $responseDecoded = json_decode($response, true);
 
             curl_close($curl);
 
             if (password_verify($passwordInput, $responseDecoded['password'])) {
-                return true;
+                return [true, $responseDecoded['userType']];
             } else {
                 return false;
             }

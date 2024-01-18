@@ -9,7 +9,7 @@
             $username = $_POST['username'];
 
             // Al usar sentencias preparadas se evitan ataques por inyeccion SQL
-            $sql = "SELECT password FROM usuarios WHERE username = ?";
+            $sql = "SELECT password, userType FROM usuarios WHERE username = ?";
 
             try {
                 $stmt = $con->prepare($sql);
@@ -20,9 +20,13 @@
                 if ($result->num_rows > 0) {
                     $row = $result->fetch_assoc();
                     $passwordDB = $row['password'];
+                    $userType = $row['userType'];
 
                     header("HTTP/1.1 200 OK");
-                    echo json_encode(array("password" => $passwordDB));
+                    echo json_encode([
+                        "password" => $passwordDB,
+                        "userType" => $userType
+                    ]);
                 } else {
                     header("HTTP/1.1 404 Not Found");
                 }

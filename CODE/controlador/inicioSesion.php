@@ -8,20 +8,30 @@
         $passwordInput = $_POST['password'];
 
         if (empty($usernameInput) || empty($passwordInput)) {
-            header("Location: ../vista/login.php?mensaje=faltanDatos");
+            //header("Location: ../vista/login.php?mensaje=faltanDatos");
             exit();
         }
 
         $username = ["username" => $usernameInput];
 
         /* El usuario tiene que ser un array para las consultas POST*/
-        if (inicioSesion($username, $passwordInput)) {
-            header("Location: ../vista/paginaPrincipal.php");
+        /* inicioSesion devuelve un array con dos elementos si es true 
+            estoy almacenando los resultados en el array para poder aceder al valor*/
+
+        $result = inicioSesion($username, $passwordInput);
+
+        if ($result[0]) {
+            $userType = $result[1];
+            echo "user: $userType";
+            //header("Location: ../vista/paginaPrincipal.php");
             exit();
         } else {
-            header("Location: ../vista/login.php?mensaje=errorInicioSesion");
+            echo "mal";
+            //header("Location: ../vista/login.php?mensaje=errorInicioSesion");
             exit();
         }
+    } else {
+        exit();
     }
 
 
