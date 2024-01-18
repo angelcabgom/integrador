@@ -1,43 +1,51 @@
+
+/*Ajustes del contenedor principal y el fondo*/
 main {
     display: flex;
-    background-image: url("../img/FotoInicioSesion.jpg");
+    background-image: url("../img/FotoRegistro.png");
     background-size: cover;
     background-position: center;
     justify-content: center;
+    align-items: center;
 }
 
-/*Ajustes del contenedor del login*/
 
-.contenedor-main-login{
+/*Ajustes especificos del contenedor de los inputs*/
+.contenedor-main-registro{
     display: flex;
-    width: 25%;
-    height: 50%;
-    margin-top: 10%;
+    width: 40%;
+    height: 80%;
     min-width: 300px;
     border-radius: 1rem;
     background-color: rgba(217, 217, 217, 0.55);
-    max-height: 750px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
 }
-/*Ajustes de todos los inputs*/
 
-.contenedor-main-login h4 {
+/*Ajustes del h2*/
+.contenedor-main-registro h3 {
     font-weight: bold;
     color: #8B4513;
 }
 
-.custom-login-form {
-    width: 75%;
-}
-
-.custom-form-group{
+/*Ajustes de los inputs*/
+.custom-register-form {
     width: 100%;
     display: flex;
     justify-content: center;
+}
+
+
+.custom-form-group{
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
     flex-wrap: wrap;
+}
+
+.columna1{
+    margin-right: 0.25rem;
 }
 
 .custom-form-control{
@@ -55,18 +63,31 @@ main {
     color: #979797;
 }
 
+.container-image-control{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+    border-radius: 0.5rem;
+    background-color: #D9D9D9;
+    padding: 1rem;
+    color: #979797;
+}
+
+.container-image-control span {
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
 
 
-/*Cambiar el color de cuando se hace clic :active o :focus*/
-/*Cambiar la alerta de cuando no se ha rellanado un campo*/
 .custom-submit-control{
     background-color: #8B4513;
     border: 0;
-    padding: 0.75rem 1rem;
+    padding: 0.75rem 1.75rem;
     margin-top: 0.75rem;
     color: white;
     font-weight: bold;
-    width: 50%;
+    width: 40%;
     text-align: center;
     min-width: 75px;
 }
@@ -93,4 +114,7 @@ main {
 .custom-link-login a:hover{
     color: #b76932;
 }
+
+
+
 

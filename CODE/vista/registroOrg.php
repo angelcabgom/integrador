@@ -1,14 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+// se usa ***antes*** de incluir los header para incluir los estilos con la funcion incluirEstilos
+$estilosDinamicos = [
+    "registro" => "../css/registroOrg.css",
+];
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+include("headerTrueLogin.php");
 
-<body>
-    <!-- El formulario de registro no queda otra que ponerlo en dos columnas -->
-</body>
-
-</html>
+?>
+<main class="flex-grow-1 vh-100">
+    <div class="contenedor-main-registro">
+        <h3>Crea una cuenta de organizacion</h3>
+        <form class="custom-register-form" action="../controlador/registro.php" enctype="multipart/form-data" method="post">
+            <div class="custom-form-group form-group">
+                <div class="columna1">
+                    <input type="text" name="username" class="custom-form-control form-control" placeholder="Usuario" required>
+                    <input type="text" name="name" class="custom-form-control form-control" placeholder="Nombre" required>
+                    <input type="email" name="email" class="custom-form-control form-control" placeholder="Email" required>
+                    <input type="password" name="password" class="custom-form-control form-control" placeholder="Contraseña" required>
+                </div>
+                <div class="columna2">
+                    <input type="password" name="passconf" class="custom-form-control form-control" placeholder="Repetir contraseña" required>
+                    <input type="text" name="localidad" class="custom-form-control form-control" placeholder="Localidad" required>
+                    <input type="text" name="localidad" class="custom-form-control form-control" placeholder="Telefono" required>
+                    <input type="text" name="localidad" class="custom-form-control form-control" placeholder="Nombre organizacion" required>
+                </div>
+                <div class="container-image-control form-outline">
+                    <span>Foto de perfil</span>
+                    <input name="imagen" type="file" class="custom-image-control form-control" accept="image/*" required />
+                </div>
+                <input type="submit" name="enviar" class="custom-submit-control form-control" value="Registrarse">
+            </div>
+        </form>
+        <small class="custom-link-login">
+            <p>¿Ya eres miembro?</p>
+            <a href="login.php">Inicie sesion</a>
+            <p>Para organizadores</p>
+            <a href="login.html">Registro organizadores</a>
+        </small>
+    </div>
+</main>
+<?php include("footer.php") ?>

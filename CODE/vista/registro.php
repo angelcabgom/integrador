@@ -29,7 +29,7 @@ include("headerTrueLogin.php");
             <p>¿Ya eres miembro?</p>
             <a href="login.php">Inicie sesion</a>
             <p>Para organizadores</p>
-            <a href="login.html">Registro organizadores</a>
+            <a href="registroOrg.php">Registro organizadores</a>
         </small>
     </div>
 </main>
