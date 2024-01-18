@@ -39,8 +39,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_REQUEST['enviar'])) {
         header("Location: ../vista/registroOrg.php?mensaje=noCoinciden");
         exit();
     } else {
-        $hashedPassword = password_hash($usuario['password'], PASSWORD_DEFAULT);
-        $usuario['password'] = $hashedPassword;
+        $hashedPassword = password_hash($organizacion['password'], PASSWORD_DEFAULT);
+        $organizacion['password'] = $hashedPassword;
     }
 
     if (move_uploaded_file($rutaTemporal, $rutaPermanente)) {

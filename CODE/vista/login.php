@@ -4,7 +4,7 @@ $estilosDinamicos = [
     "login" => "../css/login.css",
 ];
 
-include("headerFalseLogin.php");
+include("headGlobal.php");
 
 ?>
 

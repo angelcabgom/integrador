@@ -4,7 +4,8 @@ $estilosDinamicos = [
     "registro" => "../css/registro.css",
 ];
 
-include("headerTrueLogin.php");
+/* En headGlobal se maneja los headers a incluir y los estilos dinamicos */
+include("headGlobal.php");
 
 ?>
 <main class="flex-grow-1 vh-100">

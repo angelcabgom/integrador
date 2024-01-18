@@ -4,7 +4,7 @@ $estilosDinamicos = [
     "registroOrg" => "../css/registroOrg.css",
 ];
 
-include("headerTrueLogin.php");
+include("headGlobal.php");
 
 ?>
 <main class="flex-grow-1 vh-100">
