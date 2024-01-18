@@ -10,7 +10,7 @@
     }
 
 
-    function registroUsuario($usuario)
+    function registro($datos)
     {
         try {
             $url = "http://localhost/integrador/code/servicios/usuarios/registro.php";
@@ -20,7 +20,7 @@
                 CURLOPT_URL => $url,
                 CURLOPT_RETURNTRANSFER => true,
                 CURLOPT_POST => true,
-                CURLOPT_POSTFIELDS => $usuario,
+                CURLOPT_POSTFIELDS => $datos,
                 CURLOPT_FAILONERROR => true,
             );
 

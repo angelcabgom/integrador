@@ -36,7 +36,6 @@ main {
     justify-content: center;
 }
 
-
 .custom-form-group{
     width: 80%;
     display: flex;
@@ -44,8 +43,10 @@ main {
     flex-wrap: wrap;
 }
 
-.columna1{
-    margin-right: 0.25rem;
+.columnas-flex-wrapper{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .custom-form-control{
@@ -92,6 +93,15 @@ main {
     min-width: 75px;
 }
 
+.custom-submit-control:active{
+    background-color: #b76932;
+    color: white;
+}
+
+.custom-submit-control:focus{
+    background-color: #b76932;
+    color: white;
+}
 
 /* Todos los ajustes de los enlaces de debajo del form*/
 .custom-link-login{

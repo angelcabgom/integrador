@@ -71,6 +71,15 @@ main {
     min-width: 75px;
 }
 
+.custom-submit-control:active{
+    background-color: #b76932;
+    color: white;
+}
+
+.custom-submit-control:focus{
+    background-color: #b76932;
+    color: white;
+}
 
 /* Todos los ajustes de los enlaces de debajo del form*/
 .custom-link-login{
