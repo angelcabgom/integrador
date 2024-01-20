@@ -66,11 +66,20 @@
     }
 
     /* Simplemente comprobando la variable $_SESSION['userType'] se incluye un header u otro */
-    function comprobarTipoSesion()
+    function comprobarTipoSesion($filename)
     {
         session_start();
         if (isset($_SESSION['userType'])) {
-            if ($_SESSION['userType'] == 'user') {
+            if (isset($_SESSION['userType']) && $filename == 'login.php') {
+                header("Location: paginaPrincipal.php");
+                exit();
+            } elseif (isset($_SESSION['userType']) && $filename == 'registro.php') {
+                header("Location: perfilUsuario.php");
+                exit();
+            } elseif (isset($_SESSION['userType']) && $filename == 'registroOrg.php') {
+                header("Location: perfilUsuario.php");
+                exit();
+            } elseif ($_SESSION['userType'] == 'user') {
                 include("headerTrueLogin.php");
             } elseif ($_SESSION['userType'] == 'org') {
                 include("headerTrueLoginOrg.php");
@@ -80,6 +89,5 @@
         }
         session_write_close();
     }
-
 
     ?>

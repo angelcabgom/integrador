@@ -1,13 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Jomhuria&display=swap');
 
+/**/
+html {
+    min-width: 320px;
+}
+
 /*Estilo del body para mantener el footer en el pie de la pagina*/
 body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     margin: 0;
+    
 }
-
 
 /*Ajustes navbar*/
 
@@ -201,6 +206,7 @@ footer {
 footer span {
     order: 1; 
     margin-left: 1rem;
+    width: 80%;
 }
 
 footer .container-imagenes {
@@ -210,4 +216,26 @@ footer .container-imagenes {
 
 .container-imagenes #segundaImagen{
     margin-left: 1rem;
+}
+
+@media screen and (min-width: 0px) and (max-width: 560px){
+    footer {
+        flex-direction: column;
+        height: 13vh;
+    }
+
+    footer .container-imagenes {
+        margin-right: 0;
+        align-self: flex-end;
+        margin: 0.5rem;
+    }
+
+    footer span {
+        font-size: 0.75rem;
+        width: 65%;
+        font-weight: bold;
+        order: 2; 
+        margin: 0.5rem;
+        align-self: flex-start;
+    }
 }

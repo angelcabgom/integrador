@@ -20,11 +20,13 @@
 
     // $estilosDinamicos se debe declarar en el documento en el que incluya el header
     // ***antes*** de incluir el header
-    if (isset($estilosDinamicos)) {
-        incluirEstilos($estilosDinamicos);
-    }
+
+    incluirEstilos($estilosDinamicos);
+
 
     incluirEstilos($estilosComunes);
+
+
     ?>
 </head>
 
@@ -32,6 +34,8 @@
 <?php
 
 // Aqui se incluyen los headers
-comprobarTipoSesion()
+comprobarTipoSesion($nombreArchivo);
+
+
 
 ?>

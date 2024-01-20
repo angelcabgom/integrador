@@ -8,7 +8,7 @@ $nombreArchivo = basename(__FILE__);
 
 // se usa ***antes*** de incluir los header para incluir los estilos con la funcion incluirEstilos
 $estilosDinamicos = [
-    "login" => "../css/principal.css",
+    "landing" => "../css/landing.css",
 ];
 
 include("headGlobal.php");
@@ -16,8 +16,12 @@ include("headGlobal.php");
 ?>
 
 <main class="flex-grow-1 vh-100">
-    <p>
-
-    </p>
+    <div class="container-landing">
+        <div class="landing-nombre">TrekWikia</div>
+        <div class="landing-eslogan">Empieza tu camino aqui</div>
+        <div class="container-landing-register">
+            <a class="link" href="registro.php">Register</a>
+        </div>
+    </div>
 </main>
 <?php include("footer.php"); ?>
