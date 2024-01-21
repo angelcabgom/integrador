@@ -103,6 +103,7 @@ div#tituloCabezera{
     padding: 15px;
     padding-left: 25px;   
     width: 500%;    
+    box-shadow: 0px 0px 0.2rem 0.2rem rgba(0, 0, 0, 0.2);
 }
 
 .dropdown-item {
@@ -218,6 +219,8 @@ footer .container-imagenes {
     margin-left: 1rem;
 }
 
+
+/*Estilos footer para dispositivos pantalla mas pequeña*/
 @media screen and (min-width: 0px) and (max-width: 560px){
     footer {
         flex-direction: column;
@@ -238,4 +241,54 @@ footer .container-imagenes {
         margin: 0.5rem;
         align-self: flex-start;
     }
+}
+
+/*Estilos del menu dropdown del perfil*/
+
+.custom-perfil-dropdown{
+    width: 10%;
+    padding: 0px;
+    box-shadow: 0px 0px 0.2rem 0.2rem rgba(0, 0, 0, 0.2)
+}
+
+.custom-perfil-dropdown li {
+    width: 100%;
+    border-bottom: 1px solid black;
+}
+
+.custom-perfil-dropdown li:last-child {
+    width: 100%;
+    border-bottom:none;
+}
+
+.custom-perfil-dropdown li:hover{
+    text-decoration: underline;
+}
+.custom-dropdown .dropdown-toggle::after {
+    display: none;
+}
+.custom-dropdown .dropdown-menu {
+    top: 3rem; /* Adjust this value to move the dropdown up or down */
+}
+
+.cerrar-sesion{
+    color: red;
+}
+
+.dropdown-item-perfil{
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-item-perfil span{
+   margin-right: 0.5rem;
+}
+
+
+.material-symbols-outlined-perfil {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 800,
+  'GRAD' 0,
+  'opsz' 12
 }

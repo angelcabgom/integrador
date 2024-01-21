@@ -1,4 +1,5 @@
 <body>
+
     <!-- headerrrr -->
     <nav class="navbar-container-principal navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
@@ -48,12 +49,30 @@
                         </ul>
                     </li>
 
-                    <li class="nav-item ms-auto mx-5">
-                        <a href="perfilUsuario.php">
+                    <!-- Dropdown menu -->
+                    <li class="nav-item ms-auto mx-5 dropdown custom-dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <span class="custom-material-icon-profile material-symbols-outlined">
                                 person
                             </span>
                         </a>
+                        <ul class="custom-perfil-dropdown dropdown-menu dropdown-menu-end">
+                            <!-- Opciones del dropdown -->
+                            <li>
+                                <a href="#" class="dropdown-item-perfil dropdown-item">Tu perfil</a>
+                            </li>
+                            <li>
+                                <a href="#" class="dropdown-item-perfil dropdown-item">Configuracion perfil</a>
+                            </li>
+                            <li>
+                                <a href="../controlador/cerrarSesion.php" class="dropdown-item-perfil dropdown-item cerrar-sesion">
+                                    <span class="material-symbols-outlined">
+                                        logout
+                                    </span>
+                                    Cerrar sesion
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </div>
