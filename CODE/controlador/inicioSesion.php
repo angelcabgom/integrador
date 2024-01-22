@@ -17,24 +17,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_REQUEST['enviar'])) {
 
     /* El usuario tiene que ser un array para las consultas POST*/
     /* inicioSesion devuelve un array con dos elementos si es true 
-        estoy almacenando los resultados en el array para poder acceder al valor*/
+        estoy almacenando los resultados en el array result para poder acceder al valor*/
 
     $result = inicioSesion($username, $passwordInput);
 
     if ($result[0]) {
         $userType = $result[1];
-        
+        $id = $result[2];
+
+        echo $id;
+
         $_SESSION['userType'] = $userType;
+        $_SESSION['id'] = $id;
 
         session_write_close();
-        
         header("Location: ../vista/paginaPrincipal.php");
         exit();
     } else {
-        echo "mal";
+        session_write_close();
         header("Location: ../vista/login.php?mensaje=errorInicioSesion");
         exit();
     }
 } else {
+    session_write_close();
     exit();
 }

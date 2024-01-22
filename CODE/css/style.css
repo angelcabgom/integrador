@@ -51,14 +51,7 @@ div#tituloCabezera{
     background-color: #D9D9D9; 
 }
 
-.material-symbols-outlined {
-    font-variation-settings:
-    'FILL' 0,
-    'wght' 400,
-    'GRAD' 0,
-    'opsz' 24;
-    padding-left: 5%;
-}
+
 
 /*Estilo de la barra de busqueda cuando se hace clic*/
 .custom-search-bar:focus {
@@ -173,12 +166,13 @@ div#tituloCabezera{
 }
 
 /*Estilos de headerTrueLogin*/
-/*Estilos del icono de perfil*/
-.custom-material-icon-profile{
-    color: #979797;
-    font-size: 2.5rem;
-    box-sizing: border-box;
-    padding: 0px;
+
+
+#imagenPerfil{
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.2rem;
+    border: 2px solid grey;
 }
 
 
@@ -246,9 +240,9 @@ footer .container-imagenes {
 /*Estilos del menu dropdown del perfil*/
 
 .custom-perfil-dropdown{
-    width: 10%;
+    width: 20%;
     padding: 0px;
-    box-shadow: 0px 0px 0.2rem 0.2rem rgba(0, 0, 0, 0.2)
+    box-shadow: 0px 0px 0.1rem 0.1rem rgba(0, 0, 0, 0.2)
 }
 
 .custom-perfil-dropdown li {
@@ -271,9 +265,6 @@ footer .container-imagenes {
     top: 3rem; /* Adjust this value to move the dropdown up or down */
 }
 
-.cerrar-sesion{
-    color: red;
-}
 
 .dropdown-item-perfil{
     display: flex;
@@ -284,11 +275,44 @@ footer .container-imagenes {
    margin-right: 0.5rem;
 }
 
+.custom-perfil-dropdown li:hover{
+    text-decoration: none;
+    background-color: #ebebeb;
+    border-radius: 0.2rem;
+}
+
+.custom-perfil-dropdown li a:hover{
+   color: black;
+}
+
+.cerrar-sesion{
+    color: red;
+}
+
+.cerrar-sesion:hover{
+    color: red !important; /* Si no se usa important da problemas de especificidad */
+}
 
 .material-symbols-outlined-perfil {
   font-variation-settings:
   'FILL' 0,
   'wght' 800,
+  'GRAD' 0,
+  'opsz' 12
+}
+
+.material-symbols-outlined-perfil-conf {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 12
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
   'GRAD' 0,
   'opsz' 12
 }

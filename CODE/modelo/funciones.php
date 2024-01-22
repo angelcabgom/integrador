@@ -56,7 +56,7 @@
             curl_close($curl);
 
             if (password_verify($passwordInput, $responseDecoded['password'])) {
-                return [true, $responseDecoded['userType']];
+                return [true, $responseDecoded['userType'], $responseDecoded['id']];
             } else {
                 return false;
             }
@@ -68,7 +68,6 @@
     /* Simplemente comprobando la variable $_SESSION['userType'] se incluye un header u otro */
     function comprobarTipoSesion($filename)
     {
-        session_start();
         if (isset($_SESSION['userType'])) {
             if (isset($_SESSION['userType']) && $filename == 'login.php') {
                 header("Location: paginaPrincipal.php");
@@ -87,7 +86,28 @@
         } else {
             include("headerFalseLogin.php");
         }
-        session_write_close();
+    }
+
+    function obtenerImagen()
+    {
+        if (isset($_SESSION['id'])) {
+            $id = $_SESSION['id'];
+
+            $curl = curl_init();
+
+            curl_setopt_array($curl, array(
+                CURLOPT_URL => "http://localhost/integrador/code/servicios/usuarios/imagenPerfil.php?id=$id",
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_CUSTOMREQUEST => 'GET',
+            ));
+
+            $response = curl_exec($curl);
+            $responseDecoded = json_decode($response, true);
+            $imagen = $responseDecoded[0]['imagen'];
+
+            curl_close($curl);
+            return $imagen;
+        }
     }
 
     ?>

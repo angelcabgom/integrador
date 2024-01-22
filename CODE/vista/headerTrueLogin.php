@@ -1,5 +1,4 @@
 <body>
-
     <!-- headerrrr -->
     <nav class="navbar-container-principal navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
@@ -50,19 +49,27 @@
                     </li>
 
                     <!-- Dropdown menu -->
-                    <li class="nav-item ms-auto mx-5 dropdown custom-dropdown">
+                    <li class="nav-item ms-auto mx-3 dropdown custom-dropdown">
                         <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <span class="custom-material-icon-profile material-symbols-outlined">
-                                person
-                            </span>
+                            <img src="../img/subidasPerfil/<?php echo $GLOBALS['imagenPerfil']; ?>" id="imagenPerfil">
                         </a>
                         <ul class="custom-perfil-dropdown dropdown-menu dropdown-menu-end">
                             <!-- Opciones del dropdown -->
                             <li>
-                                <a href="#" class="dropdown-item-perfil dropdown-item">Tu perfil</a>
+                                <a href="#" class="dropdown-item-perfil dropdown-item">
+                                    <span class="material-symbols-outlined">
+                                        person
+                                    </span>
+                                    Tu perfil
+                                </a>
                             </li>
                             <li>
-                                <a href="#" class="dropdown-item-perfil dropdown-item">Configuracion perfil</a>
+                                <a href="#" class="dropdown-item-perfil dropdown-item">
+                                    <span class="material-symbols-outlined">
+                                        settings
+                                    </span>
+                                    Configuracion
+                                </a>
                             </li>
                             <li>
                                 <a href="../controlador/cerrarSesion.php" class="dropdown-item-perfil dropdown-item cerrar-sesion">
