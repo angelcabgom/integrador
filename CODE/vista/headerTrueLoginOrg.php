@@ -52,12 +52,38 @@
                         Organiza carreras
                     </a>
 
-                    <li class="nav-item mx-4">
-                        <a href="perfilUsuario.php">
-                            <span class="custom-material-icon-profile material-symbols-outlined">
-                                person
-                            </span>
+                    <!-- Dropdown menu -->
+                    <li class="nav-item mx-3 dropdown custom-dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="../img/subidasPerfil/<?php echo $GLOBALS['imagenPerfil']; ?>" id="imagenPerfil">
                         </a>
+                        <ul class="custom-perfil-dropdown dropdown-menu dropdown-menu-end">
+                            <!-- Opciones del dropdown -->
+                            <li>
+                                <a href="#" class="dropdown-item-perfil dropdown-item">
+                                    <span class="material-symbols-outlined">
+                                        person
+                                    </span>
+                                    Tu perfil
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="dropdown-item-perfil dropdown-item">
+                                    <span class="material-symbols-outlined">
+                                        settings
+                                    </span>
+                                    Configuracion
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../controlador/cerrarSesion.php" class="dropdown-item-perfil dropdown-item cerrar-sesion">
+                                    <span class="material-symbols-outlined">
+                                        logout
+                                    </span>
+                                    Cerrar sesion
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </div>
