@@ -7,17 +7,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $sql = "SELECT imagen FROM usuarios WHERE 1 ";
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
-        $sql .= "AND id='$id'";
+        $sql .= "AND id=?";
     }
+
     try {
-        $result = $con->query($sql);
-        if ($result and $result->num_rows > 0) {
-            $alumnos = $result->fetch_all(MYSQLI_ASSOC);
+        $stmt = $con->prepare($sql);
+
+        if (isset($_GET['id'])) {
+            $stmt->bind_param("s", $id);
+        }
+
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result && $result->num_rows > 0) {
+            $imagen = $result->fetch_all(MYSQLI_ASSOC);
             header("HTTP/1.1 200 OK");
-            echo json_encode($alumnos);
+            echo json_encode($imagen);
         } else {
             header("HTTP/1.1 404 Not Found");
         }
+
+        $stmt->close();
     } catch (mysqli_sql_exception $e) {
         header("HTTP/1.1 404 Not Found");
     }

@@ -54,6 +54,7 @@
 
                     <!-- Dropdown menu -->
                     <li class="nav-item mx-3 dropdown custom-dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <img src="../img/subidasPerfil/<?php echo $GLOBALS['imagenPerfil']; ?>" id="imagenPerfil">
                         </a>
                         <ul class="custom-perfil-dropdown dropdown-menu dropdown-menu-end">
