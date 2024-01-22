@@ -110,4 +110,27 @@
         }
     }
 
+    function comprobarUsername($username)
+    {
+        try {
+            $curl = curl_init();
+
+            curl_setopt_array($curl, array(
+                CURLOPT_URL => 'http://localhost/integrador/code/servicios/usuarios/comprobarUser.php',
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_CUSTOMREQUEST => 'POST',
+                CURLOPT_POSTFIELDS => array('username' => $username),
+            ));
+
+            $response = curl_exec($curl);
+            $responseDecoded = json_decode($response, true);
+
+            curl_close($curl);
+            
+            return $responseDecoded["exists"];
+        } catch (Exception $e) {
+            return false;
+        }
+    }
+
     ?>

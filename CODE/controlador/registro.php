@@ -14,6 +14,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_REQUEST['enviar'])) {
         exit();
     }
 
+    if (comprobarUsername($_POST['username'])) {
+        header("Location: ../vista/registro.php?mensaje=usuarioYaExiste");
+        exit();
+    }
+
     // Control del tamaño
 
     $maxSize = 8 * 1024 * 1024;
