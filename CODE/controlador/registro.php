@@ -14,10 +14,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_REQUEST['enviar'])) {
         exit();
     }
 
+    // Control del tamaño
+
+    $maxSize = 8 * 1024 * 1024;
+
+    if ($_FILES['imagen']['size'] > $maxSize) {
+        header("Location: ../vista/registro.php?mensaje=tamanoArchivoExcedido");
+        exit();
+    }
+
+    // Control del tipo de archivo
+
+    $extensionesPermitidas = ['jpg', 'jpeg', 'png', 'gif'];
+    $extension = pathinfo($_FILES['imagen']['name'], PATHINFO_EXTENSION);
+
+    if (!in_array(strtolower($extension), $extensionesPermitidas)) {
+        header("Location: ../vista/registro.php?mensaje=tipoArchivoNoPermitido");
+        exit();
+    }
+
     // Imagen ruta temporal
     $rutaTemporal = $_FILES['imagen']['tmp_name'];
     $nombreImagen = uniqid() . "_" . $_FILES['imagen']['name'];
     $rutaPermanente = "../img/subidasPerfil/" . $nombreImagen;
+    $allowedExtensions = ['jpg', 'jpeg', 'png', 'gif']; // Add more if needed
+
 
     /* Almaceno solo el nombre imagen para mas facil acceso */
     $usuario = [

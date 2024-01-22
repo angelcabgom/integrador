@@ -173,8 +173,8 @@ div#tituloCabezera{
 
 
 #imagenPerfil{
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 2.75rem;
+    height: 2.75rem;
     border-radius: 0.2rem;
     border: 2px solid grey;
 }
@@ -241,6 +241,8 @@ footer .container-imagenes {
     }
 }
 
+
+
 /*Estilos del menu dropdown del perfil*/
 
 .custom-perfil-dropdown{
@@ -266,9 +268,8 @@ footer .container-imagenes {
     display: none;
 }
 .custom-dropdown .dropdown-menu {
-    top: 3rem; /* Adjust this value to move the dropdown up or down */
+    top: 3.3rem; 
 }
-
 
 .dropdown-item-perfil{
     display: flex;

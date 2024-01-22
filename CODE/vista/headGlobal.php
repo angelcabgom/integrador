@@ -39,7 +39,7 @@
 session_start();
 // Aqui se incluyen los headers
 $imagenPerfil = obtenerImagen();
-$GLOBALS['imagenPerfil'] = $imagenPerfil;
+$GLOBALS['imagenPerfil'] = $imagenPerfil; // Se mete la imagen de perfil en un $GLOBALS para poder acceder desde cualquier archivo
 comprobarTipoSesion($nombreArchivo);
 session_write_close();
 
