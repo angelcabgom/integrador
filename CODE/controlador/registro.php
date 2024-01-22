@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_REQUEST['enviar'])) {
 
     if (move_uploaded_file($rutaTemporal, $rutaPermanente)) {
         if (registro($usuario)) {
-            header("Location: ../vista/paginaPrincipal.php");
+            header("Location: ../vista/login.php");
             exit();
         } else {
             header("Location: ../vista/registro.php?mensaje=errorRegistro");

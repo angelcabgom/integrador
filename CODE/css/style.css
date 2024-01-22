@@ -44,6 +44,10 @@ div#tituloCabezera{
     width: 150%;     
 }
 
+.search-container span {
+    margin-left: 0.5rem;
+}
+
 .custom-search-bar {
     border: none;
     outline: none;
