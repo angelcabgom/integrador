@@ -5,10 +5,10 @@ require("../modelo/funciones.php");
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_REQUEST['enviar'])) {
 
     if (
-        empty($_POST['username']) || empty($_POST['name'])
-        || empty($_POST['email']) || empty($_POST['password'])
-        || empty($_POST['passconf']) || empty($_POST['localidad']
-            || empty($_FILES['imagen']))
+        isset($_POST['username']) && isset($_POST['name'])
+        && isset($_POST['email']) && isset($_POST['password'])
+        && isset($_POST['pais']) && isset($_POST['imagen'])
+        && isset($_POST['userType'])
     ) {
         header("Location: ../vista/registro.php?mensaje=faltanDatos");
         exit();
@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_REQUEST['enviar'])) {
         "name" => $_POST['name'],
         "email" => $_POST['email'],
         "password" => $_POST['password'],
-        "localidad" => $_POST['localidad'],
+        "pais" => $_POST['pais'],
         "telefono" => $_POST['telefono'],
         "organizacionNombre" => $_POST['organizacion'],
         "userType" => 'org',

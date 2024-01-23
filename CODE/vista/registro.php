@@ -13,6 +13,10 @@ $estilosDinamicos = [
 /* En headGlobal se maneja los headers a incluir y los estilos dinamicos */
 include("headGlobal.php");
 
+
+
+
+
 ?>
 <main class="flex-grow-1 vh-100">
     <div class="contenedor-main-registro">
@@ -24,7 +28,9 @@ include("headGlobal.php");
                 <input type="email" name="email" class="custom-form-control form-control" placeholder="Email" required>
                 <input type="password" name="password" class="custom-form-control form-control" placeholder="Contraseña" required>
                 <input type="password" name="passconf" class="custom-form-control form-control" placeholder="Repetir contraseña" required>
-                <input type="text" name="localidad" class="custom-form-control form-control" placeholder="Localidad" required>
+                <select name="pais" class="custom-form-control form-control" required>
+                    <?php paises() ?>
+                </select>
                 <div class="container-image-control form-outline">
                     <span>Foto de perfil</span>
                     <input name="imagen" type="file" class="custom-image-control form-control" accept="image/*" required />

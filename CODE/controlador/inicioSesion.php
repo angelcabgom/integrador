@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_REQUEST['enviar'])) {
         header("Location: ../vista/login.php?mensaje=faltanDatos");
         exit();
     }
-    
+
     $username = ["username" => $usernameInput];
 
     /* El usuario tiene que ser un array para las consultas POST*/
@@ -25,8 +25,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_REQUEST['enviar'])) {
         $userType = $result[1];
         $id = $result[2];
 
+
+
         $_SESSION['userType'] = $userType;
         $_SESSION['id'] = $id;
+
+       
 
         session_write_close();
         header("Location: ../vista/paginaPrincipal.php");

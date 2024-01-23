@@ -64,7 +64,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="dropdown-item-perfil dropdown-item">
+                                <a href="configUsuario.php" class="dropdown-item-perfil dropdown-item">
                                     <span class="material-symbols-outlined">
                                         settings
                                     </span>

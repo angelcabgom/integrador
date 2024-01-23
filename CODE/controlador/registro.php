@@ -7,8 +7,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_REQUEST['enviar'])) {
     if (
         empty($_POST['username']) || empty($_POST['name'])
         || empty($_POST['email']) || empty($_POST['password'])
-        || empty($_POST['passconf']) || empty($_POST['localidad']
-            || empty($_FILES['imagen']))
+        || empty($_POST['passconf']) || empty($_POST['pais'])
+        || empty($_FILES['imagen'])
     ) {
         header("Location: ../vista/registro.php?mensaje=faltanDatos");
         exit();
@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_REQUEST['enviar'])) {
         "name" => $_POST['name'],
         "email" => $_POST['email'],
         "password" => $_POST['password'],
-        "localidad" => $_POST['localidad'],
+        "pais" => $_POST['pais'],
         "userType" => 'user',
         "imagen" => $nombreImagen
     ];

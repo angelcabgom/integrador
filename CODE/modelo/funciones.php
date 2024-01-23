@@ -88,6 +88,7 @@
         }
     }
 
+    /* Tiene que estar metido en un bloque de session_start() */
     function obtenerImagen()
     {
         if (isset($_SESSION['id'])) {
@@ -126,10 +127,40 @@
             $responseDecoded = json_decode($response, true);
 
             curl_close($curl);
-            
+
             return $responseDecoded["exists"];
         } catch (Exception $e) {
             return false;
+        }
+    }
+
+    function userData()
+    {
+        if (isset($_SESSION['id'])) {
+            $id = $_SESSION['id'];
+            $curl = curl_init();
+
+            curl_setopt_array($curl, array(
+                CURLOPT_URL => "http://localhost/integrador/code/servicios/usuarios/infoUser.php?id=$id",
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_CUSTOMREQUEST => 'GET',
+            ));
+
+            $response = curl_exec($curl);
+            $responseDecoded = json_decode($response, true);
+
+            curl_close($curl);
+            return $responseDecoded;
+        }
+    }
+
+    function paises()
+    {
+        $countryData = '../json/countries.json';
+        $countries = json_decode(file_get_contents($countryData), true);
+
+        foreach ($countries as $country) {
+            echo "<option value='{$country['name']}'>{$country['flag']}  {$country['name']}</option>";
         }
     }
 
