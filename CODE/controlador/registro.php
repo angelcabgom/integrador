@@ -14,10 +14,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_REQUEST['enviar'])) {
         exit();
     }
 
+
+    echo "tamos aqui";
+
     if (comprobarUsername($_POST['username'])) {
         header("Location: ../vista/registro.php?mensaje=usuarioYaExiste");
         exit();
     }
+
+    echo "hola";
 
     // Control del tamaño
 
@@ -37,6 +42,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_REQUEST['enviar'])) {
         header("Location: ../vista/registro.php?mensaje=tipoArchivoNoPermitido");
         exit();
     }
+
+
 
     // Imagen ruta temporal
     $rutaTemporal = $_FILES['imagen']['tmp_name'];

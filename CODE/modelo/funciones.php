@@ -128,6 +128,8 @@
 
             curl_close($curl);
 
+            echo $responseDecoded["exists"];
+
             return $responseDecoded["exists"];
         } catch (Exception $e) {
             return false;
@@ -171,7 +173,7 @@
 
         foreach ($countriesArray as $country) {
             if ($country['name'] == $countryName) {
-                return $country['flag'];
+                return "<img src='../img/flags/4x3/{$country['flagCode']}.svg'>";
             }
         }
 

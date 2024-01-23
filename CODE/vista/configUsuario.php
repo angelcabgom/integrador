@@ -17,7 +17,7 @@ $bandera = getBandera($userData[0]['pais']);
 ?>
 <main class="flex-grow-1 vh-100">
     <div class="contenedor-main-informacion-actual">
-        <h3><?php echo $userData[0]['nombre']; ?>&nbsp;<?php echo $bandera ?> </h3>
+        <h3><?php echo $userData[0]['nombre']; ?>&nbsp;<?php echo $bandera ?></h3>
         <h6>@<?php echo $userData[0]['username']; ?> </h6>
         <div class="contenedor-imagen">
             <img src="../img/subidasPerfil/<?php echo $GLOBALS['imagenPerfil']; ?>">

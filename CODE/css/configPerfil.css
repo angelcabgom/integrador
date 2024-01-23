@@ -56,6 +56,13 @@ main {
     width:70%;
 }
 
+.contenedor-main-informacion-actual h3 img{
+    width: 15%;
+    height: 90%;
+    border-radius: 0.5rem;
+}
+
+
 .contenedor-main-informacion-actual h6 {
     font-weight: bold;
     color: #8B4513;

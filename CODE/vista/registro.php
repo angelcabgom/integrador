@@ -29,7 +29,9 @@ include("headGlobal.php");
                 <input type="password" name="password" class="custom-form-control form-control" placeholder="Contraseña" required>
                 <input type="password" name="passconf" class="custom-form-control form-control" placeholder="Repetir contraseña" required>
                 <select name="pais" class="custom-form-control form-control" required>
-                    <?php paises() ?>
+                    <!-- Respect a las bandera solo aparece el codigo de pais en edge y chrome por 
+                    tema de politicas de Microsoft en firefox si que aparecen -->
+                    <?php paises(); ?>
                 </select>
                 <div class="container-image-control form-outline">
                     <span>Foto de perfil</span>
