@@ -3,7 +3,7 @@
     $con = new Conexion;
 
     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-        $sql = "SELECT username, nombre, email, localidad, telefono, organizacionNombre FROM usuarios WHERE 1 ";
+        $sql = "SELECT username, nombre, email, pais, telefono, organizacionNombre FROM usuarios WHERE 1 ";
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
             $sql .= "AND id=?";

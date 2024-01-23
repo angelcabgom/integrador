@@ -160,8 +160,23 @@
         $countries = json_decode(file_get_contents($countryData), true);
 
         foreach ($countries as $country) {
-            echo "<option value='{$country['name']}'>{$country['flag']}  {$country['name']}</option>";
+            echo "<option value='{$country['name']}'>{$country['flag']} &nbsp; {$country['name']}</option>";
         }
     }
+
+    function getBandera($countryName)
+    {
+        $countriesArray = json_decode(file_get_contents('../json/countries.json'), true);
+
+
+        foreach ($countriesArray as $country) {
+            if ($country['name'] == $countryName) {
+                return $country['flag'];
+            }
+        }
+
+        return '🌍';
+    }
+
 
     ?>
