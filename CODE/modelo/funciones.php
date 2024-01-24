@@ -136,6 +136,34 @@
         }
     }
 
+    function comprobarUsernameDiff($username, $id)
+    {
+        try {
+            $curl = curl_init();
+
+            curl_setopt_array($curl, array(
+                CURLOPT_URL => 'http://localhost/integrador/code/servicios/usuarios/comprobarUserDiff.php',
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_CUSTOMREQUEST => 'POST',
+                CURLOPT_POSTFIELDS => array('username' => $username, 'id' => $id),
+            ));
+
+            $response = curl_exec($curl);
+
+            curl_close($curl);
+            $responseDecoded = json_decode($response, true);
+
+            curl_close($curl);
+
+            echo $responseDecoded["exists"];
+
+            return $responseDecoded["exists"];
+        } catch (Exception $e) {
+            return false;
+        }
+    }
+
+
     function userData()
     {
         if (isset($_SESSION['id'])) {

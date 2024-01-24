@@ -12,6 +12,9 @@ $estilosDinamicos = [
 
 include("headGlobal.php");
 $userData = userData();
+
+
+
 $bandera = getBandera($userData[0]['pais']);
 ?>
 <main class="flex-grow-1 vh-100">
@@ -33,16 +36,16 @@ $bandera = getBandera($userData[0]['pais']);
             <div class="custom-form-group form-group">
                 <div class="columnas-flex-wrapper">
                     <div class="columna1">
-                        <input type="text" name="username" class="custom-form-control form-control" placeholder="Usuario" required>
-                        <input type="text" name="name" class="custom-form-control form-control" placeholder="Nombre" required>
+                        <input type="text" name="username" class="custom-form-control form-control" value="<?php echo $userData[0]['username'] ?>" placeholder="Usuario" required>
+                        <input type="text" name="name" class="custom-form-control form-control" value="<?php echo $userData[0]['nombre'] ?>" placeholder="Nombre" required>
                     </div>
                     <div class="columna2">
-                        <select name="pais" class="custom-form-control form-control" required>
+                        <select id="paises" name="pais" class="custom-form-control form-control" required>
                             <!-- Respect a las bandera solo aparece el codigo de pais en edge y chrome por 
                             tema de politicas de Microsoft en firefox si que aparecen -->
                             <?php paises(); ?>
                         </select>
-                        <input type="email" name="email" class="custom-form-control form-control" placeholder="Email" required>
+                        <input type="email" name="email" class="custom-form-control form-control" value="<?php echo $userData[0]['email'] ?>" placeholder="Email" required>
                     </div>
                 </div>
 
@@ -50,12 +53,13 @@ $bandera = getBandera($userData[0]['pais']);
                 <input type="password" name="nuevaPass" id="additionalInput1" class="custom-form-control form-control" placeholder="Nueva contraseña" style="display:none;">
                 <input type="password" name="nuevaPassConf" id="additionalInput2" class="custom-form-control form-control" placeholder="Confirmar nueva contraseña" style="display:none;">
                 <div class="checkbox-control">
-                    <input type="checkbox" id="additionalInputsCheckbox" onclick="toggleAdditionalInputs()">
+                    <input type="checkbox" id="additionalInputsCheckbox" onclick="mostrarInputs()">
                     <label for="additionalInputsCheckbox">Cambiar contraseña</label>
                 </div>
                 <div class="container-image-control form-outline">
                     <span>Foto de perfil</span>
-                    <input name="imagen" type="file" class="custom-image-control form-control" accept="image/*" required />
+                    <input name="newImagen" type="file" class="custom-image-control form-control" accept="image/*" />
+                    <input type="hidden" name="oldImagen" value="<?php echo $GLOBALS['imagenPerfil'] ?>">
                 </div>
                 <input type="submit" name="enviar" class="custom-submit-control form-control" value="Modificar">
             </div>
@@ -65,15 +69,21 @@ $bandera = getBandera($userData[0]['pais']);
 <?php include("footer.php"); ?>
 
 <script>
-    function toggleAdditionalInputs() {
+    function mostrarInputs() {
         var checkbox = document.getElementById("additionalInputsCheckbox");
         var input1 = document.getElementById("additionalInput1");
         var input2 = document.getElementById("additionalInput2");
 
 
-        // If the checkbox is checked, show the additional inputs; otherwise, hide them
         input1.style.display = checkbox.checked ? "block" : "none";
         input2.style.display = checkbox.checked ? "block" : "none";
 
     }
+
+    function seleccionarElemento() {
+        let element = document.getElementById("paises");
+        element.value = "<?php echo $userData[0]['pais'] ?>";
+    }
+
+    seleccionarElemento();
 </script>

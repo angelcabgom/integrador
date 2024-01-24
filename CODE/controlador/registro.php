@@ -49,7 +49,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_REQUEST['enviar'])) {
     $rutaTemporal = $_FILES['imagen']['tmp_name'];
     $nombreImagen = uniqid() . "_" . $_FILES['imagen']['name'];
     $rutaPermanente = "../img/subidasPerfil/" . $nombreImagen;
-    $allowedExtensions = ['jpg', 'jpeg', 'png', 'gif']; // Add more if needed
 
 
     /* Almaceno solo el nombre imagen para mas facil acceso */

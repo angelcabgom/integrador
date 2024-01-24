@@ -4,7 +4,7 @@
     require("../modelo/funciones.php");
 
     session_start();
-    if ($_SESSION['userType'] != 'user') {
+    if ($_SESSION['userType'] != 'org') {
         header("Location: ../vista/paginaPrincipal.php?mensaje=permisosIncorrectos");
         exit();
     }
@@ -23,6 +23,7 @@
             isset($_POST['username']) && isset($_POST['name'])
             && isset($_POST['email']) && isset($_POST['passconf'])
             && isset($_POST['pais'])  && isset($_POST['oldImagen'])
+            && isset($_POST['telefono'])  && isset($_POST['organizacion'])
         ) {
             // Comprobar que el usuario no exista en la base de datos
 
@@ -30,6 +31,8 @@
                 header("Location: ../vista/configUsuario.php?mensaje=usuarioYaExiste");
                 exit();
             }
+
+
 
             session_start();
             $usuario = [
@@ -39,10 +42,13 @@
                 "email" => $_POST['email'],
                 "pais" => $_POST['pais'],
                 "userType" => 'user',
-                "imagen" => $_POST['oldImagen']
+                "imagen" => $_POST['oldImagen'],
+                "telefono" => $_POST['telefono'],
+                "organizacionNombre" => $_POST['organizacion'],
             ];
             session_write_close();
 
+            
             // Compruebo que las contraseñas de los inputs coincidan
 
             if (!(empty($_POST['nuevaPass']) && empty($_POST['nuevaPassConf']))) {
