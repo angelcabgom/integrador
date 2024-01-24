@@ -25,12 +25,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_REQUEST['enviar'])) {
         $userType = $result[1];
         $id = $result[2];
 
-
-
         $_SESSION['userType'] = $userType;
         $_SESSION['id'] = $id;
-
-       
 
         session_write_close();
         header("Location: ../vista/paginaPrincipal.php");

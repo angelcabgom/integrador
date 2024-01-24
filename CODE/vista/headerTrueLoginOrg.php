@@ -68,7 +68,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="configUsuario.php" class="dropdown-item-perfil dropdown-item">
+                                <a href="configOrg.php" class="dropdown-item-perfil dropdown-item">
                                     <span class="material-symbols-outlined">
                                         settings
                                     </span>

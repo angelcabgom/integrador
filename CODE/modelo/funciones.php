@@ -168,6 +168,11 @@
 
     function getBandera($countryName)
     {
+
+        if ($countryName == 'N/A') {
+            return '🌍';
+        }
+
         $countriesArray = json_decode(file_get_contents('../json/countries.json'), true);
 
 
@@ -178,6 +183,60 @@
         }
 
         return '🌍';
+    }
+
+    function modificar($datos)
+    {
+        try {
+            $curl = curl_init();
+
+            curl_setopt_array($curl, array(
+                CURLOPT_URL => 'http://localhost/integrador/code/servicios/usuarios/modificar.php',
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_CUSTOMREQUEST => 'PUT',
+                CURLOPT_POSTFIELDS => http_build_query($datos),
+                CURLOPT_HTTPHEADER => array(
+                    'Content-Type: application/x-www-form-urlencoded'
+                ),
+            ));
+
+            $response = curl_exec($curl);
+
+            curl_close($curl);
+            echo $response;
+
+            return true;
+        } catch (Exception $e) {
+            return false;
+        }
+    }
+
+    function comprobarPass($id, $passwordInput)
+    {
+
+        try {
+            $curl = curl_init();
+
+            curl_setopt_array($curl, array(
+                CURLOPT_URL => 'http://localhost/integrador/code/servicios/usuarios/comprobarPass.php',
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_CUSTOMREQUEST => 'POST',
+                CURLOPT_POSTFIELDS => array('id' => $id),
+            ));
+
+            $response = curl_exec($curl);
+            $responseDecoded = json_decode($response, true);
+
+            curl_close($curl);
+
+            if (password_verify($passwordInput, $responseDecoded['password'])) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception $e) {
+            return false;
+        }
     }
 
 

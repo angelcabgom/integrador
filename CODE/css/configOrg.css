@@ -71,17 +71,12 @@ main {
 }
 
 .username {
-    display: flex;
- }
- 
+   display: flex;
+}
+
 .username span{
-     margin-right: 0.5rem;
-}
-
-.checkbox-control {
-    margin-top: 0.7rem;
-}
-
+    margin-right: 0.5rem;
+ }
 
 /*Ajustes del h3*/
 .contenedor-main-informacion h3 {
