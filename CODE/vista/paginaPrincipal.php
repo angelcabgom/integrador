@@ -17,11 +17,52 @@ include("headGlobal.php");
 
 <main class="flex-grow-1 vh-100">
 
-    <div id="mapCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="titulo-flex-wrapper">
+        <h2 class="headerTituloInicio">Carreras recomendadas</h2>
+        <h5 class="headerSubtituloInicio">Una selección de las mejores carreras elegidas por TrekWikia</h5>
+    </div>
+
+    <div class="icons-container">
+        <span class="icon material-symbols-outlined active-icon" onclick="goToSlide(0)">
+            hiking
+        </span>
+        <span class="icon material-symbols-outlined" onclick="goToSlide(1)">
+            directions_bike
+        </span>
+        <span class="icon material-symbols-outlined" onclick="goToSlide(2)">
+            sprint
+        </span>
+        <span class="icon material-symbols-outlined" onclick="goToSlide(3)">
+            directions_car
+        </span>
+        <span class="icon material-symbols-outlined" onclick="goToSlide(4)">
+            downhill_skiing
+        </span>
+        <span class="icon material-symbols-outlined" onclick="goToSlide(5)">
+            snowmobile
+        </span>
+    </div>
+
+    <div id="mapCarousel" class="carousel slide">
         <div class="carousel-indicators">
-            <button type="button" data-bs-target="#mapCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#mapCarousel" data-bs-slide-to="1" class="active" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#mapCarousel" data-bs-slide-to="2" class="active" aria-label="Slide 3"></button>
+            <span data-bs-target="#mapCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1">
+                <i class="material-icons">hiking</i>
+            </span>
+            <span data-bs-target="#mapCarousel" data-bs-slide-to="1" aria-label="Slide 2">
+                <i class="material-icons">directions_bike</i>
+            </span>
+            <span data-bs-target="#mapCarousel" data-bs-slide-to="2" aria-label="Slide 3">
+                <i class="material-icons">sprint</i>
+            </span>
+            <span data-bs-target="#mapCarousel" data-bs-slide-to="3" aria-label="Slide 4">
+                <i class="material-icons">directions_car</i>
+            </span>
+            <span data-bs-target="#mapCarousel" data-bs-slide-to="4" aria-label="Slide 5">
+                <i class="material-icons">downhill_skiing</i>
+            </span>
+            <span data-bs-target="#mapCarousel" data-bs-slide-to="5" aria-label="Slide 6">
+                <i class="material-icons">snowmobile</i>
+            </span>
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active" id="carouselItem1">
@@ -45,6 +86,27 @@ include("headGlobal.php");
                     <p>Some representative placeholder content for the third slide.</p>
                 </div>
             </div>
+            <div class="carousel-item" id="carouselItem4">
+                <div id="map4" class="leaflet-container"></div>
+                <div class="carousel-caption d-none d-md-block always-visible">
+                    <h5>Third slide label</h5>
+                    <p>Some representative placeholder content for the third slide.</p>
+                </div>
+            </div>
+            <div class="carousel-item" id="carouselItem5">
+                <div id="map5" class="leaflet-container"></div>
+                <div class="carousel-caption d-none d-md-block always-visible">
+                    <h5>Third slide label</h5>
+                    <p>Some representative placeholder content for the third slide.</p>
+                </div>
+            </div>
+            <div class="carousel-item" id="carouselItem6">
+                <div id="map6" class="leaflet-container"></div>
+                <div class="carousel-caption d-none d-md-block always-visible">
+                    <h5>Third slide label</h5>
+                    <p>Some representative placeholder content for the third slide.</p>
+                </div>
+            </div>
         </div>
         <button class="carousel-control-prev always-visible" type="button" data-bs-target="#mapCarousel" data-bs-slide="prev">
             <img class="back" src="../img/svgs/arrow_back_ios_FILL0_wght700_GRAD200_opsz48.svg" alt="">
@@ -57,6 +119,39 @@ include("headGlobal.php");
     </div>
 
     <script>
+        function goToSlide(slideIndex) {
+            var carousel = new bootstrap.Carousel(document.getElementById('mapCarousel'));
+            var indicators = document.querySelectorAll('.carousel-indicators span');
+            var icons = document.querySelectorAll('.icons-container .icon');
+
+            indicators.forEach(function(indicator) {
+                indicator.classList.remove('active');
+            });
+
+            icons.forEach(function(icon) {
+                icon.classList.remove('active-icon');
+            });
+
+            indicators[slideIndex].classList.add('active');
+
+            icons[slideIndex].classList.add('active-icon');
+
+            carousel.to(slideIndex);
+        }
+
+        var map1, map2, map3, map4, map5, map6;
+
+        document.getElementById('mapCarousel').addEventListener('slid.bs.carousel', function(e) {
+            var currentIndex = e.to;
+            var icons = document.querySelectorAll('.icons-container .icon');
+          
+            icons.forEach(function(icon) {
+                icon.classList.remove('active-icon');
+            });
+
+            icons[currentIndex].classList.add('active-icon');
+        });
+
         var map1, map2, map3;
 
         $('#mapCarousel').on('slid.bs.carousel', function() {
@@ -74,8 +169,6 @@ include("headGlobal.php");
                         boxZoom: false,
                         scrollWheelZoom: false
                     })
-
-                    map1.setZoom(4);
 
                     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                         attribution: '© OpenStreetMap contributors'
@@ -102,7 +195,7 @@ include("headGlobal.php");
                         doubleClickZoom: false,
                         boxZoom: false,
                         scrollWheelZoom: false
-                    }).setView([40.7128, -74.0060], 13);
+                    }).setView([40.7128, -74.0060], 12);
                     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                         attribution: '© OpenStreetMap contributors'
                     }).addTo(map2);
@@ -116,19 +209,61 @@ include("headGlobal.php");
                         doubleClickZoom: false,
                         boxZoom: false,
                         scrollWheelZoom: false
-                    }).setView([34.0522, -118.2437], 13);
+                    }).setView([34.0522, -118.2437], 12);
                     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                         attribution: '© OpenStreetMap contributors'
                     }).addTo(map3);
                 }
+            } else if ($('#carouselItem4').hasClass('active')) {
+                if (!map4) {
+                    map4 = L.map('map4', {
+                        zoomControl: false,
+                        dragging: false,
+                        touchZoom: false,
+                        doubleClickZoom: false,
+                        boxZoom: false,
+                        scrollWheelZoom: false
+                    }).setView([40.7128, -74.0060], 12);
+                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        attribution: '© OpenStreetMap contributors'
+                    }).addTo(map4);
+                }
+            } else if ($('#carouselItem5').hasClass('active')) {
+                if (!map5) {
+                    map5 = L.map('map5', {
+                        zoomControl: false,
+                        dragging: false,
+                        touchZoom: false,
+                        doubleClickZoom: false,
+                        boxZoom: false,
+                        scrollWheelZoom: false
+                    }).setView([35.6895, 139.6917], 12);
+                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        attribution: '© OpenStreetMap contributors'
+                    }).addTo(map5);
+                }
+            } else if ($('#carouselItem6').hasClass('active')) {
+                if (!map6) {
+                    map6 = L.map('map6', {
+                        zoomControl: false,
+                        dragging: false,
+                        touchZoom: false,
+                        doubleClickZoom: false,
+                        boxZoom: false,
+                        scrollWheelZoom: false
+                    }).setView([-33.8688, 151.2093], 12);
+                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        attribution: '© OpenStreetMap contributors'
+                    }).addTo(map6);
+                }
             }
         }
 
-        // Initial map initialization on page load
-        $(document).ready(function() {
+        document.addEventListener("DOMContentLoaded", function() {
             initMaps();
         });
     </script>
+
 
 </main>
 <?php include("footer.php"); ?>

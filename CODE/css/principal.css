@@ -1,7 +1,56 @@
 main {
     display: flex;
-    align-items: flex-end;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
     height: 100vh;
+}
+
+.titulo-flex-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 5rem;
+}
+
+.headerTituloInicio{
+    font-weight: bolder;
+    color: #979797;
+}
+
+.headerSubtituloInicio{
+    font-weight: bold;
+    color: #8B4513;
+}
+
+.icons-container{
+    display: flex;
+    width: 25%;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+.icon {
+    font-size: 2.5rem;
+    padding: 0.3rem;
+}
+
+.active-icon {
+    background-color: #d5d5d5; 
+    color: #ffffff; 
+    border-radius: 5px; 
+    box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.2); 
+    transform: translateY(0.1rem);
+}
+
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 700,
+  'GRAD' 200,
+  'opsz' 48
 }
 
 #mapCarousel {
@@ -12,7 +61,6 @@ main {
 .carousel-inner {
     height: 100%; 
 }
-
 
 .carousel-item {
     height: 100%;
@@ -35,7 +83,7 @@ main {
 }
 
 .carousel-indicators{
-    z-index: 999;
+    display: none;
 }
 
 .material-symbols-outlined-chevron{
