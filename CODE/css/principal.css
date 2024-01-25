@@ -1,9 +1,15 @@
-#map-container {
-    height: 400px;
-    width: 400px;
+main {
+    display: flex;
+    align-items: flex-end;
+    height: 100vh; 
 }
 
-#map {
-    height: 400px;
-   
+.map-container {
+    height: 50%;
+    width: 100%;
 }
+
+.map{
+    height: 100%;
+}
+
