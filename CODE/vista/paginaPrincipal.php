@@ -17,7 +17,18 @@ include("headGlobal.php");
 
 <main class="flex-grow-1 vh-100">
     <p>
+    <div id="map"></div>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        var map = L.map('map', {
+            center: [51.505, -0.09],
+            zoom: 13
+        });
 
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+    </script>
     </p>
 </main>
 <?php include("footer.php"); ?>
