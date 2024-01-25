@@ -4,31 +4,59 @@ main {
     height: 100vh;
 }
 
-
 #mapCarousel {
     height: 60%; 
     width: 100vw;
-}
-
-.map {
-    height: 100%;
 }
 
 .carousel-inner {
     height: 100%; 
 }
 
-.custom-carousel {
-    height: 100vw; 
-}
 
 .carousel-item {
     height: 100%;
-   
 }
 
 .leaflet-container {
     height: 100%;
     width: 100%;
 }
+
+.carousel-control-prev, .carousel-control-next {
+    z-index: 1000;
+}
+
+.carousel-caption{
+    z-index: 998;
+    background-color: rgba(151, 151, 151, 0.5); 
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+}
+
+.carousel-indicators{
+    z-index: 999;
+}
+
+.material-symbols-outlined-chevron{
+    color: red;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 700,
+  'GRAD' 200,
+  'opsz' 48
+}
+
+/* Confuguracion del SVG de las flechas */
+.next {
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+}
+
+.back {
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+}
+
 

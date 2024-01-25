@@ -17,27 +17,44 @@ include("headGlobal.php");
 
 <main class="flex-grow-1 vh-100">
 
-
     <div id="mapCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#mapCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#mapCarousel" data-bs-slide-to="1" class="active" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#mapCarousel" data-bs-slide-to="2" class="active" aria-label="Slide 3"></button>
+        </div>
         <div class="carousel-inner">
             <div class="carousel-item active" id="carouselItem1">
                 <div id="map1" class="leaflet-container"></div>
+                <div class="carousel-caption d-none d-md-block always-visible">
+                    <h5>First slide label</h5>
+                    <p>Some representative placeholder content for the first slide.</p>
+                </div>
             </div>
             <div class="carousel-item" id="carouselItem2">
                 <div id="map2" class="leaflet-container"></div>
+                <div class="carousel-caption d-none d-md-block always-visible">
+                    <h5>Second slide label</h5>
+                    <p>Some representative placeholder content for the second slide.</p>
+                </div>
             </div>
             <div class="carousel-item" id="carouselItem3">
                 <div id="map3" class="leaflet-container"></div>
+                <div class="carousel-caption d-none d-md-block always-visible">
+                    <h5>Third slide label</h5>
+                    <p>Some representative placeholder content for the third slide.</p>
+                </div>
             </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#mapCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <button class="carousel-control-prev always-visible" type="button" data-bs-target="#mapCarousel" data-bs-slide="prev">
+            <img class="back" src="../img/svgs/arrow_back_ios_FILL0_wght700_GRAD200_opsz48.svg" alt="">
+            <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#mapCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <button class="carousel-control-next always-visible" type="button" data-bs-target="#mapCarousel" data-bs-slide="next">
+            <img class="next" src="../img/svgs/arrow_forward_ios_FILL0_wght700_GRAD200_opsz48.svg" alt="">
+            <span class="visually-hidden">Next</span>
         </button>
     </div>
-
 
     <script>
         var map1, map2, map3;
@@ -58,6 +75,8 @@ include("headGlobal.php");
                         scrollWheelZoom: false
                     })
 
+                    map1.setZoom(4);
+
                     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                         attribution: '© OpenStreetMap contributors'
                     }).addTo(map1);
@@ -66,10 +85,10 @@ include("headGlobal.php");
                     var gpxLayer = new L.GPX('../gpx/aw.gpx', {
                         async: true,
                         marker_options: {
-                            startIconUrl: 'path/to/start/icon.png',
-                            endIconUrl: 'path/to/end/icon.png',
-                            shadowUrl: 'path/to/shadow.png',
-                        }
+                            startIconUrl: '../img/mappins/start-pin.png',
+                            endIconUrl: '../img/mappins/end-pin.png',
+                            shadowUrl: '../img/mappins/shadow.png'
+                        },
                     }).on('loaded', function(e) {
                         map1.fitBounds(e.target.getBounds());
                     }).addTo(map1);
