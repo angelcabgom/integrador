@@ -36,6 +36,10 @@ main {
     padding: 0.3rem;
 }
 
+.icon:hover {
+    cursor: pointer;
+}
+
 .active-icon {
     background-color: #d5d5d5; 
     color: #ffffff; 
