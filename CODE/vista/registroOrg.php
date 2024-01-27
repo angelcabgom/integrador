@@ -28,7 +28,7 @@ include("headGlobal.php");
                     </div>
                     <div class="columna2">
                         <input type="password" name="passconf" class="custom-form-control form-control" placeholder="Repetir contraseña" required>
-                        <select name="pais" class="custom-form-control form-control" required>
+                        <select name="pais" class="custom-form-control form-control form-select" required>
                             <?php paises() ?>
                         </select>
                         <input type="tel" name="telefono" class="custom-form-control form-control" placeholder="Telefono" required>

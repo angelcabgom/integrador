@@ -39,11 +39,11 @@ include("headGlobal.php");
             downhill_skiing
         </span>
         <span class="icon material-symbols-outlined" onclick="goToSlide(5)">
-            snowmobile
+            motorcycle
         </span>
     </div>
 
-    <div id="mapCarousel" class="carousel slide">
+    <div id="mapCarousel" class="carousel slide carousel-fade">
         <div class="carousel-indicators">
             <span data-bs-target="#mapCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1">
                 <i class="material-icons">hiking</i>
@@ -82,14 +82,14 @@ include("headGlobal.php");
             <div class="carousel-item" id="carouselItem3">
                 <div id="map3" class="leaflet-container"></div>
                 <div class="carousel-caption d-none d-md-block always-visible">
-                    <h5>Third slide label</h5>
+                    <h5>Isle of Man TT</h5>
                     <p>Some representative placeholder content for the third slide.</p>
                 </div>
             </div>
             <div class="carousel-item" id="carouselItem4">
                 <div id="map4" class="leaflet-container"></div>
                 <div class="carousel-caption d-none d-md-block always-visible">
-                    <h5>Third slide label</h5>
+                    <h5>Nurburgring - Nordschleife</h5>
                     <p>Some representative placeholder content for the third slide.</p>
                 </div>
             </div>
@@ -144,7 +144,7 @@ include("headGlobal.php");
         document.getElementById('mapCarousel').addEventListener('slid.bs.carousel', function(e) {
             var currentIndex = e.to;
             var icons = document.querySelectorAll('.icons-container .icon');
-          
+
             icons.forEach(function(icon) {
                 icon.classList.remove('active-icon');
             });
@@ -154,28 +154,28 @@ include("headGlobal.php");
 
         var map1, map2, map3;
 
-        $('#mapCarousel').on('slid.bs.carousel', function() {
+        document.getElementById('mapCarousel').addEventListener('slid.bs.carousel', function() {
             initMaps();
         });
 
         function initMaps() {
-            if ($('#carouselItem1').hasClass('active')) {
-                if (!map1) {
-                    map1 = L.map('map1', {
-                        zoomControl: false,
-                        dragging: false,
-                        touchZoom: false,
-                        doubleClickZoom: false,
-                        boxZoom: false,
-                        scrollWheelZoom: false
-                    })
+            // Inicializar el mapa
+            function initializeMap(mapElementId, gpxFilePath, mapView, padding) {
+                var map = L.map(mapElementId, {
+                    zoomControl: false,
+                    dragging: false,
+                    touchZoom: false,
+                    doubleClickZoom: false,
+                    boxZoom: false,
+                    scrollWheelZoom: false
+                });
 
-                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                        attribution: '© OpenStreetMap contributors'
-                    }).addTo(map1);
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '©OpenStreetMap contributors'
+                }).addTo(map);
 
-                    // Load the GPX file onto map1
-                    var gpxLayer = new L.GPX('../gpx/aw.gpx', {
+                if (gpxFilePath) {
+                    var gpxLayer = new L.GPX(gpxFilePath, {
                         async: true,
                         marker_options: {
                             startIconUrl: '../img/mappins/start-pin.png',
@@ -183,78 +183,43 @@ include("headGlobal.php");
                             shadowUrl: '../img/mappins/shadow.png'
                         },
                     }).on('loaded', function(e) {
-                        map1.fitBounds(e.target.getBounds());
-                    }).addTo(map1);
+                        map.fitBounds(e.target.getBounds(), {
+                            padding: padding
+                        });
+                    }).addTo(map);
+                } else {
+                    map.setView(mapView[0], mapView[1]);
                 }
-            } else if ($('#carouselItem2').hasClass('active')) {
-                if (!map2) {
-                    map2 = L.map('map2', {
-                        zoomControl: false,
-                        dragging: false,
-                        touchZoom: false,
-                        doubleClickZoom: false,
-                        boxZoom: false,
-                        scrollWheelZoom: false
-                    }).setView([40.7128, -74.0060], 12);
-                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                        attribution: '© OpenStreetMap contributors'
-                    }).addTo(map2);
+
+                return map;
+            }
+
+            // Comprobar que elemento del carrusel esta activo y inicializar el mapa correcto
+            var activeItem = document.querySelector('.carousel-item.active');
+
+            if (activeItem.id === 'carouselItem1') {
+                if (!window.map1) {
+                    window.map1 = initializeMap('map1', '../data/gpx/aw.gpx', null);
                 }
-            } else if ($('#carouselItem3').hasClass('active')) {
-                if (!map3) {
-                    map3 = L.map('map3', {
-                        zoomControl: false,
-                        dragging: false,
-                        touchZoom: false,
-                        doubleClickZoom: false,
-                        boxZoom: false,
-                        scrollWheelZoom: false
-                    }).setView([34.0522, -118.2437], 12);
-                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                        attribution: '© OpenStreetMap contributors'
-                    }).addTo(map3);
+            } else if (activeItem.id === 'carouselItem2') {
+                if (!window.map2) {
+                    window.map2 = initializeMap('map2', '../data/gpx/GlyWay.gpx', null);
                 }
-            } else if ($('#carouselItem4').hasClass('active')) {
-                if (!map4) {
-                    map4 = L.map('map4', {
-                        zoomControl: false,
-                        dragging: false,
-                        touchZoom: false,
-                        doubleClickZoom: false,
-                        boxZoom: false,
-                        scrollWheelZoom: false
-                    }).setView([40.7128, -74.0060], 12);
-                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                        attribution: '© OpenStreetMap contributors'
-                    }).addTo(map4);
+            } else if (activeItem.id === 'carouselItem3') {
+                if (!window.map3) {
+                    window.map3 = initializeMap('map3', '../data/gpx/isleOfManTT.gpx', null, [5, 5]);
                 }
-            } else if ($('#carouselItem5').hasClass('active')) {
-                if (!map5) {
-                    map5 = L.map('map5', {
-                        zoomControl: false,
-                        dragging: false,
-                        touchZoom: false,
-                        doubleClickZoom: false,
-                        boxZoom: false,
-                        scrollWheelZoom: false
-                    }).setView([35.6895, 139.6917], 12);
-                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                        attribution: '© OpenStreetMap contributors'
-                    }).addTo(map5);
+            } else if (activeItem.id === 'carouselItem4') {
+                if (!window.map4) {
+                    window.map4 = initializeMap('map4', '../data/gpx/nurbur.gpx', null);
                 }
-            } else if ($('#carouselItem6').hasClass('active')) {
-                if (!map6) {
-                    map6 = L.map('map6', {
-                        zoomControl: false,
-                        dragging: false,
-                        touchZoom: false,
-                        doubleClickZoom: false,
-                        boxZoom: false,
-                        scrollWheelZoom: false
-                    }).setView([-33.8688, 151.2093], 12);
-                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                        attribution: '© OpenStreetMap contributors'
-                    }).addTo(map6);
+            } else if (activeItem.id === 'carouselItem5') {
+                if (!window.map5) {
+                    window.map5 = initializeMap('map5', null, [35.6895, 139.6917], null);
+                }
+            } else if (activeItem.id === 'carouselItem6') {
+                if (!window.map6) {
+                    window.map6 = initializeMap('map6', null, [-33.8688, 151.2093], null);
                 }
             }
         }

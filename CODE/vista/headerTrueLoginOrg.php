@@ -48,7 +48,7 @@
                         </ul>
                     </li>
 
-                    <a href="" class="organizar-link nav-link ms-auto mx-4">
+                    <a href="organizarCarrera.php" class="organizar-link nav-link ms-auto mx-4">
                         Organiza carreras
                     </a>
 
