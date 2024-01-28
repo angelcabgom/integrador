@@ -22,28 +22,9 @@
                         <!-- Dropdown menu -->
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <div class="row">
-                                <div class="col-6">
-                                    <div class="dropdown-item text-start">
-                                        <a href="#">Rutas en España</a>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="dropdown-item text-start">
-                                        <a href="#">Rutas en Francia</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-6">
-                                    <div class="dropdown-item text-start">
-                                        <a href="#">Rutas en Alemania</a>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="dropdown-item text-start">
-                                        <a href="#">Rutas en Suiza</a>
-                                    </div>
-                                </div>
+                                <?php
+                                mostrarPaises();
+                                ?>
                             </div>
                         </ul>
                     </li>

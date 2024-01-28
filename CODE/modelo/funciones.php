@@ -289,5 +289,41 @@
         }
     }
 
+    function mostrarPaises()
+    {
+        try {
+            $curl = curl_init();
+
+            curl_setopt_array($curl, array(
+                CURLOPT_URL => 'http://localhost/integrador/code/servicios/rutas/recogerPaises.php',
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_CUSTOMREQUEST => 'GET',
+            ));
+
+            $response = curl_exec($curl);
+            $paises = json_decode($response);
+
+            $count = count($paises);
+            echo "<div class='row'>";
+            for ($i = 0; $i < $count; $i++) {
+
+                echo '<div class="col-md-6">
+                        <div class="dropdown-item text-start">
+                            <a href="#">Carreras en ' . $paises[$i] . '</a>
+                        </div>
+                    </div>';
+
+                // Nueva row cada dos columnas
+                if (($i + 1) % 2 === 0 && $i !== $count - 1) {
+                    echo '</div><div class="row">';
+                }
+            }
+
+            curl_close($curl);
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+    }
+
 
     ?>
