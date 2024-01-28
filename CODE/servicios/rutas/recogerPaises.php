@@ -4,7 +4,7 @@ require_once("../clases/conexion.php");
 $con = new Conexion;
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    $sql = "SELECT DISTINCT pais FROM rutas";
+    $sql = "SELECT DISTINCT pais FROM rutas ORDER BY pais ASC";
 
     try {
         $result = $con->query($sql);
