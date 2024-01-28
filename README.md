@@ -8,7 +8,7 @@ https://www.figma.com/file/CVfJKwsP01QHB2cyfsUxQZ/Integrador?type=design&node-id
 
 ## Para importar la base de datos primero se debe crear una base de datos con phpMyAdmin y sobre esa base de datos importar la base de datos subida al repositorio, tambien se debe crear un usuario 'trekwikia' con contraseña 'trekwikia'.
 
-La ultima copia de labase de datos subida a gitHub es del 26/01/2024.
+La ultima copia de labase de datos subida a gitHub es del 28/01/2024 13:33.
 
 
 ## Respecto a las banderas
@@ -18,4 +18,4 @@ En el select del registro en edge y chrome apareceran codigos estilo "es" esto s
 
 ## Para los mapas y direcciones estoy OSM y Nominatim de OSM con el servicio de reverse geocoding
 
-En caso de duda dejo un enlace a la referencia de nominatim. https://nominatim.org/release-docs/latest/api/Output/
+En caso de duda dejo un enlace a la referencia de nominatim. https://nominatim.org/release-docs/latest/api/Output/. De aqui es de donde saco las ciudades, regiones y paises.
