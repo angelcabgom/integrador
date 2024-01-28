@@ -17,18 +17,18 @@ include("headGlobal.php");
 
 <main class="flex-grow-1 vh-100">
     <div class="contenedor-main-registro">
-        <h3>Crea una cuenta de organizacion</h3>
+        <h3>Organiza una carrera</h3>
         <form class="custom-register-form" action="../controlador/orgCarreras.php" enctype="multipart/form-data" method="post">
             <div class="org-grid">
                 <div id="map" class="map"></div>
                 <div class="form">
                     <div class="container-image-control form-outline">
                         <span>Introducir archivo '.gpx'</span>
-                        <input type="file" class="custom-image-control form-control" accept=".gpx" id="gpxInput" required />
+                        <input type="file" id="gpxInput" name="gpxFile" class="custom-image-control form-control" accept=".gpx" required />
                     </div>
-                    <input type="text" name="name" class="custom-form-control form-control" placeholder="Nombre">
-                    <textarea class="custom-text-area custom-form-control form-control" id="exampleTextarea" maxlength="200" placeholder="Descripcion"></textarea>
-                    <select name="pais" class="custom-form-control form-control form-select">
+                    <input type="text" id="nombre" name="nombre" class="custom-form-control form-control" placeholder="Nombre" required>
+                    <textarea class="custom-text-area custom-form-control form-control" name="descripcion" id="exampleTextarea" maxlength="200" placeholder="Descripcion" required></textarea>
+                    <select name="actividad" class="custom-form-control form-control form-select">
                         <option>Hiking</option>
                         <option>Ciclismo</option>
                         <option>Running</option>
@@ -36,25 +36,26 @@ include("headGlobal.php");
                         <option>Ski</option>
                         <option>Motos</option>
                     </select>
-                    <select name="pais" class="custom-form-control form-control form-select">
+                    <select name="dificultad" class="custom-form-control form-control form-select">
                         <option>🟩 &nbsp; Facil</option>
                         <option>🟨 &nbsp; Intermedio</option>
                         <option>🟥 &nbsp; Dificil</option>
                         <option>⬛ &nbsp; Solo expertos</option>
                     </select>
                     <input type="hidden" id="gpxDataInput" name="gpxData" />
-                    <input type="submit" class="custom-submit-control form-control" value="Subir">
+                    <input type="submit" class="custom-submit-control form-control" name="enviar" value="Subir">
                 </div>
             </div>
         </form>
     </div>
     <script>
         var map = L.map('map').setView([0, 0], 2);
-        var gpxLayer; 
-        var gpxDataJson; 
+        var gpxLayer;
+        var gpxDataJson;
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '© OpenStreetMap contributors'
+            attribution: '© OpenStreetMap contributors',
+            minZoom: 2
         }).addTo(map);
 
         document.getElementById('gpxInput').addEventListener('change', handleFileSelect);
@@ -85,6 +86,7 @@ include("headGlobal.php");
                     endIconUrl: '../img/mappins/end-pin.png',
                     shadowUrl: '../img/mappins/shadow.png'
                 },
+                minZoom: 2
             }).on('loaded', function(e) {
                 const bounds = e.target.getBounds();
                 map.fitBounds(bounds);
@@ -101,7 +103,7 @@ include("headGlobal.php");
                         region = addressDetails.state || addressDetails.county || '';
                         pais = addressDetails.country || '';
 
-                       
+
                         var gpxInfo = {
                             name: e.target.get_name(),
                             distance: e.target.get_distance(),
@@ -117,6 +119,8 @@ include("headGlobal.php");
                                 pais: pais
                             }
                         };
+
+                        document.querySelector("#nombre").value = gpxInfo['name'];
 
                         gpxDataJson = JSON.stringify(gpxInfo);
 

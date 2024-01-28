@@ -44,7 +44,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_REQUEST['enviar'])) {
     }
 
 
-
     // Imagen ruta temporal
     $rutaTemporal = $_FILES['imagen']['tmp_name'];
     $nombreImagen = uniqid() . "_" . $_FILES['imagen']['name'];

@@ -267,5 +267,27 @@
         }
     }
 
+    function registroCarrera($datos)
+    {
+
+        try {
+            $curl = curl_init();
+
+            curl_setopt_array($curl, array(
+                CURLOPT_URL => 'http://localhost/integrador/code/servicios/rutas/registroCar.php',
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_CUSTOMREQUEST => 'POST',
+                CURLOPT_POSTFIELDS => $datos,
+            ));
+
+            curl_exec($curl);
+
+            curl_close($curl);
+            return true;
+        } catch (Exception $e) {
+            return false;
+        }
+    }
+
 
     ?>
