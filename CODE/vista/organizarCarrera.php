@@ -49,17 +49,21 @@ include("headGlobal.php");
         </form>
     </div>
     <script>
-        var map = L.map('map').setView([0, 0], 2);
+        var map = L.map('map', {
+            worldCopyJump: true
+        }).setView([0, 0], 2);
         var gpxLayer;
         var gpxDataJson;
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '© OpenStreetMap contributors',
-            minZoom: 2
+            minZoom: 2,
+
         }).addTo(map);
 
-        var maxBounds = L.latLngBounds([90, -180], [-90, 180]);
+        var maxBounds = L.latLngBounds([90, -9999], [-90, 9999]);
         map.setMaxBounds(maxBounds);
+
 
         document.getElementById('gpxInput').addEventListener('change', handleFileSelect);
 
@@ -89,14 +93,17 @@ include("headGlobal.php");
                     endIconUrl: '../img/mappins/end-pin.png',
                     shadowUrl: '../img/mappins/shadow.png'
                 },
-                minZoom: 2
+                minZoom: 2,
+                noWrap: true,
+                worldCopyJump: true
             }).on('loaded', function(e) {
                 const bounds = e.target.getBounds();
                 map.fitBounds(bounds);
                 const center = bounds.getCenter();
 
-                var maxBounds = L.latLngBounds([90, -180], [-90, 180]);
+                var maxBounds = L.latLngBounds([90, -9999], [-90, 9999]);
                 map.setMaxBounds(maxBounds);
+
 
                 const apiUrl = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${center.lat}&lon=${center.lng}&addressdetails=1`;
 
