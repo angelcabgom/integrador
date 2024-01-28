@@ -20,7 +20,7 @@
                             Explora
                         </a>
                         <!-- Dropdown menu -->
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <ul class="custom-explorar-dropdown dropdown-menu" aria-labelledby="navbarDropdown">
                             
                                 <?php
                                 mostrarPaises();
