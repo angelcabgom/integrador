@@ -58,6 +58,9 @@ include("headGlobal.php");
             minZoom: 2
         }).addTo(map);
 
+        var maxBounds = L.latLngBounds([90, -180], [-90, 180]);
+        map.setMaxBounds(maxBounds);
+
         document.getElementById('gpxInput').addEventListener('change', handleFileSelect);
 
         function handleFileSelect(event) {
@@ -91,6 +94,9 @@ include("headGlobal.php");
                 const bounds = e.target.getBounds();
                 map.fitBounds(bounds);
                 const center = bounds.getCenter();
+
+                var maxBounds = L.latLngBounds([90, -180], [-90, 180]);
+                map.setMaxBounds(maxBounds);
 
                 const apiUrl = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${center.lat}&lon=${center.lng}&addressdetails=1`;
 
