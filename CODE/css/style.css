@@ -129,6 +129,11 @@ div#tituloCabezera{
     overflow-y: auto;
 }
 
+/*Camvio de color cuando el dropdown esta activo*/
+.navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
+    color: #5b2600;
+}
+
 
 /*Estilos de headerFalseLogin*/
 /*Estilos de botones login y register*/

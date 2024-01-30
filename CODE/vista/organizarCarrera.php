@@ -80,6 +80,8 @@ include("headGlobal.php");
         }
 
         function displayGPXOnMap(gpxData) {
+
+            /* si hay alguna capa ya existente entonces se eliminar para evitar problemas */
             if (map.hasLayer(gpxLayer)) {
                 map.removeLayer(gpxLayer);
             }
@@ -104,8 +106,7 @@ include("headGlobal.php");
                 var maxBounds = L.latLngBounds([90, -9999], [-90, 9999]);
                 map.setMaxBounds(maxBounds);
 
-
-                const apiUrl = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${center.lat}&lon=${center.lng}&addressdetails=1`;
+                const apiUrl = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${center.lat}&lon=${center.lng}&addressdetails=1&accept-language=en`;
 
                 fetch(apiUrl)
                     .then(response => response.json())
@@ -115,7 +116,6 @@ include("headGlobal.php");
                         ciudad = addressDetails.city || addressDetails.town || addressDetails.village || '';
                         region = addressDetails.state || addressDetails.county || '';
                         pais = addressDetails.country || '';
-
 
                         var gpxInfo = {
                             name: e.target.get_name(),

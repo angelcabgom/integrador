@@ -309,7 +309,7 @@
 
                 echo '<div class="col-md-6">
                         <div class="dropdown-item text-start">
-                            <a href="#">Carreras en ' . $paises[$i] . '</a>
+                            <a href="http://localhost/integrador/code/vista/explorarPais.php">Carreras en ' . $paises[$i] . '</a>
                         </div>
                     </div>';
 
@@ -322,6 +322,26 @@
             curl_close($curl);
         } catch (Exception $e) {
             echo $e->getMessage();
+        }
+    }
+
+    function recogerCarreras()
+    {
+        try {
+            $curl = curl_init();
+
+            curl_setopt_array($curl, array(
+                CURLOPT_URL => 'http://localhost/integrador/code/servicios/rutas/cogerCarreras.php',
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_CUSTOMREQUEST => 'GET',
+            ));
+
+            $response = curl_exec($curl);
+
+            curl_close($curl);
+            return $response;
+        } catch (Exception $e) {
+            return false;
         }
     }
 
