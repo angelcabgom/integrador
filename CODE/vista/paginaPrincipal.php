@@ -133,13 +133,13 @@ include("headGlobal.php");
             });
 
             indicators[slideIndex].classList.add('active');
-
             icons[slideIndex].classList.add('active-icon');
 
             carousel.to(slideIndex);
         }
 
-        var map1, map2, map3, map4, map5, map6;
+        var maps = [];
+        var routesData; // Declare routesData globally
 
         document.getElementById('mapCarousel').addEventListener('slid.bs.carousel', function(e) {
             var currentIndex = e.to;
@@ -150,76 +150,90 @@ include("headGlobal.php");
             });
 
             icons[currentIndex].classList.add('active-icon');
-        });
 
-        var map1, map2, map3;
-
-        document.getElementById('mapCarousel').addEventListener('slid.bs.carousel', function() {
-            initMaps();
+            if (maps[currentIndex]) {
+                maps[currentIndex].invalidateSize();
+                loadGpxData(maps[currentIndex], currentIndex); // Pass currentIndex to loadGpxData
+            }
         });
 
         function initMaps() {
-            // Inicializar el mapa
-            function initializeMap(mapElementId, gpxFilePath, mapView, padding) {
-                var map = L.map(mapElementId, {
-                    zoomControl: false,
-                    dragging: false,
-                    touchZoom: false,
-                    doubleClickZoom: false,
-                    boxZoom: false,
-                    scrollWheelZoom: false
+            fetch('http://localhost/integrador/code/servicios/rutas/cogerCarreras.php')
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    routesData = data; // Assign data to routesData
+
+                    routesData.forEach(function(route, index) {
+                        var mapElementId = 'map' + (index + 1);
+                        var gpxPath = route.archivo ? '../data/subidasgpx/' + route.archivo : null;
+
+                        var map = initializeMap(mapElementId);
+                        maps.push(map);
+
+                        if (gpxPath) {
+                            loadGpxData(map, index);
+                        }
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching routes data:', error);
                 });
+        }
 
-                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                    attribution: '©OpenStreetMap contributors'
-                }).addTo(map);
+        function initializeMap(mapElementId) {
+            var map = L.map(mapElementId, {
+                zoomControl: false,
+                dragging: false,
+                touchZoom: false,
+                doubleClickZoom: false,
+                boxZoom: false,
+                scrollWheelZoom: false
+            });
 
-                if (gpxFilePath) {
-                    var gpxLayer = new L.GPX(gpxFilePath, {
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '©OpenStreetMap contributors'
+            }).addTo(map);
+
+            return map;
+        }
+
+        function loadGpxData(map, index) {
+            var gpxPath = '../data/subidasgpx/' + routesData[index].archivo;
+
+            if (gpxPath) {
+                var gpxLayer = new L.GPX(gpxPath, {
                         async: true,
                         marker_options: {
                             startIconUrl: '../img/mappins/start-pin.png',
                             endIconUrl: '../img/mappins/end-pin.png',
                             shadowUrl: '../img/mappins/shadow.png'
                         },
-                    }).on('loaded', function(e) {
-                        map.fitBounds(e.target.getBounds(), {
-                            padding: padding
-                        });
-                    }).addTo(map);
-                } else {
-                    map.setView(mapView[0], mapView[1]);
-                }
+                    })
+                    .on('loaded', function(e) {
+                        map.fitBounds(e.target.getBounds());
 
-                return map;
+                        // Set the carousel caption based on the current route's data
+                        setCarouselCaption(index);
+                    })
+                    .on('error', function(error) {
+                        console.error('Error loading GPX file:', error);
+                    })
+                    .addTo(map);
             }
+        }
 
-            // Comprobar que elemento del carrusel esta activo y inicializar el mapa correcto
-            var activeItem = document.querySelector('.carousel-item.active');
+        function setCarouselCaption(index) {
+            var carouselItem = document.getElementById('carouselItem' + (index + 1));
+            var route = routesData[index];
 
-            if (activeItem.id === 'carouselItem1') {
-                if (!window.map1) {
-                    window.map1 = initializeMap('map1', '../data/gpx/aw.gpx', null);
-                }
-            } else if (activeItem.id === 'carouselItem2') {
-                if (!window.map2) {
-                    window.map2 = initializeMap('map2', '../data/gpx/GlyWay.gpx', null);
-                }
-            } else if (activeItem.id === 'carouselItem3') {
-                if (!window.map3) {
-                    window.map3 = initializeMap('map3', '../data/gpx/isleOfManTT.gpx', null, [5, 5]);
-                }
-            } else if (activeItem.id === 'carouselItem4') {
-                if (!window.map4) {
-                    window.map4 = initializeMap('map4', '../data/gpx/nurbur.gpx', null);
-                }
-            } else if (activeItem.id === 'carouselItem5') {
-                if (!window.map5) {
-                    window.map5 = initializeMap('map5', null, [35.6895, 139.6917], null);
-                }
-            } else if (activeItem.id === 'carouselItem6') {
-                if (!window.map6) {
-                    window.map6 = initializeMap('map6', null, [-33.8688, 151.2093], null);
+            if (carouselItem) {
+                var caption = carouselItem.querySelector('.carousel-caption');
+                if (caption) {
+                    caption.innerHTML = `
+                    <h5>${route.nombre}</h5>
+                    <p>${route.descripcion}</p>
+                `;
                 }
             }
         }
@@ -228,7 +242,5 @@ include("headGlobal.php");
             initMaps();
         });
     </script>
-
-
 </main>
 <?php include("footer.php"); ?>
