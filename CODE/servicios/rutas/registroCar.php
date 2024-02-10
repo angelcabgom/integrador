@@ -21,21 +21,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $dificultad = $_POST['dificultad'];
         $gpxFile = $_POST['gpxFile'];
         $idUsuario = $_POST['idUsuario'];
-        $distancia = $_POST['distancia']; 
-        $altMin = $_POST['altMin']; 
-        $altMax = $_POST['altMax']; 
-        $desnivelPos = $_POST['desnivelPos']; 
-        $desnivelNeg = $_POST['desnivelNeg']; 
-        $ciudad = $_POST['ciudad']; 
-        $region = $_POST['region']; 
-        $pais = $_POST['pais']; 
+        $distancia = $_POST['distancia'];
+        $altMin = $_POST['altMin'];
+        $altMax = $_POST['altMax'];
+        $desnivelPos = $_POST['desnivelPos'];
+        $desnivelNeg = $_POST['desnivelNeg'];
+        $ciudad = $_POST['ciudad'];
+        $region = $_POST['region'];
+        $pais = $_POST['pais'];
 
         $sql = "INSERT INTO `rutas` (`id`, `nombre`, `descripcion`, `dificultad`, `actividad`, `archivo`, `distancia`, `altMin`, `altMax`, `desnivelPos`, `desnivelNeg`, `ciudad`, `region`, `pais`, `id_usuario`) 
                 VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try {
             $stmt = $con->prepare($sql);
-            $stmt->bind_param("ssssssddddsssi", $nombre, $descripcion, $actividad, $dificultad, $gpxFile, $distancia, $altMin, $altMax, $desnivelPos, $desnivelNeg, $ciudad, $region, $pais, $idUsuario);
+            $stmt->bind_param("ssssssddddsssi", $nombre, $descripcion, $dificultad, $actividad,  $gpxFile, $distancia, $altMin, $altMax, $desnivelPos, $desnivelNeg, $ciudad, $region, $pais, $idUsuario);
             $stmt->execute();
 
             if ($stmt->affected_rows > 0) {

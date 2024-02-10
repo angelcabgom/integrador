@@ -139,7 +139,7 @@ include("headGlobal.php");
         }
 
         var maps = [];
-        var routesData; // Declare routesData globally
+        var routesData; 
 
         document.getElementById('mapCarousel').addEventListener('slid.bs.carousel', function(e) {
             var currentIndex = e.to;
@@ -153,7 +153,7 @@ include("headGlobal.php");
 
             if (maps[currentIndex]) {
                 maps[currentIndex].invalidateSize();
-                loadGpxData(maps[currentIndex], currentIndex); // Pass currentIndex to loadGpxData
+                loadGpxData(maps[currentIndex], currentIndex); 
             }
         });
 
@@ -162,7 +162,7 @@ include("headGlobal.php");
                 .then(response => response.json())
                 .then(data => {
                     console.log(data);
-                    routesData = data; // Assign data to routesData
+                    routesData = data; 
 
                     routesData.forEach(function(route, index) {
                         var mapElementId = 'map' + (index + 1);
@@ -213,7 +213,7 @@ include("headGlobal.php");
                     .on('loaded', function(e) {
                         map.fitBounds(e.target.getBounds());
 
-                        // Set the carousel caption based on the current route's data
+                       
                         setCarouselCaption(index);
                     })
                     .on('error', function(error) {
@@ -231,7 +231,7 @@ include("headGlobal.php");
                 var caption = carouselItem.querySelector('.carousel-caption');
                 if (caption) {
                     caption.innerHTML = `
-                    <h5>${route.nombre}</h5>
+                    <h5><a href="detalleCarrera.php?id=${route.id}">${route.nombre}</a></h5>
                     <p>${route.descripcion}</p>
                 `;
                 }
@@ -242,5 +242,6 @@ include("headGlobal.php");
             initMaps();
         });
     </script>
+   
 </main>
 <?php include("footer.php"); ?>

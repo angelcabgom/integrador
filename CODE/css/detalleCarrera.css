@@ -1,0 +1,130 @@
+main {
+    display: grid;
+    grid-template-rows: 8vh 90vh;
+    grid-template-columns: 1fr;
+    grid-template-areas: "titulo"
+                          "cuerpo";
+    width: 70%;
+    margin-left: 15%;
+}
+
+.titulo {
+    margin-top: 1rem;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    text-align: center;
+    grid-area: titulo;
+}
+
+.titulo h4{
+    font-weight: bold;
+}
+
+.cuerpo{
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: 6fr 4fr;
+    gap: 1fr;
+    grid-template-areas: "mapa datos";
+}
+
+.cuerpo b {
+    color: #878787;
+}
+
+.mapa {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    grid-area: mapa;
+}
+
+.datos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    grid-area: datos;
+}
+
+.map {
+    width: 90%;
+    height: 50%;
+    margin-bottom: 2%;
+    border-radius: 0.4rem;
+}
+
+.descripcion {
+    background-color: #D9D9D9;
+    height: 40%;
+    width: 90%;
+    border-radius: 0.4rem;
+}
+
+.organizador {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #D9D9D9;
+    width: 90%;
+    height: 10%;
+    margin-bottom: 2%;
+    border-radius: 0.4rem;
+}
+
+.organizador img {
+    height: 2rem;
+    width: 2rem;
+    border-radius: 0.5rem;
+    margin-left: 1rem;
+}
+
+.informacion {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: 
+                         "dificultad distancia"
+                         "altMin altMax"
+                         "desPos desNeg";
+    background-color: #D9D9D9;
+    width: 90%;
+    height: 40%;
+    margin-bottom: 2%;
+    border-radius: 0.4rem;
+}
+
+.informacion div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.otros {
+    background-color: #D9D9D9;
+    width: 90%;
+    height: 40%;
+    border-radius: 0.4rem;
+    padding: 1rem;
+}
+
+
+.descripcion{
+    padding: 1rem;
+    
+}
+
+.descripcion span {
+    text-align: justify;
+}   
+
+.organizador{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+

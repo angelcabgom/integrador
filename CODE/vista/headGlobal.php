@@ -38,7 +38,6 @@
 
 <body>
     <?php
-
     session_start();
     // Aqui se incluyen los headers
     $imagenPerfil = obtenerImagen();
