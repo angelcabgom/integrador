@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-01-2024 a las 13:32:31
+-- Tiempo de generación: 12-02-2024 a las 16:25:26
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `rutas` (
   `id` int(11) NOT NULL,
-  `nombre` varchar(30) NOT NULL,
+  `nombre` varchar(70) NOT NULL,
   `descripcion` varchar(200) NOT NULL,
   `dificultad` varchar(30) NOT NULL,
   `actividad` varchar(30) NOT NULL,
@@ -50,10 +50,11 @@ CREATE TABLE `rutas` (
 --
 
 INSERT INTO `rutas` (`id`, `nombre`, `descripcion`, `dificultad`, `actividad`, `archivo`, `distancia`, `altMin`, `altMax`, `desnivelPos`, `desnivelNeg`, `ciudad`, `region`, `pais`, `id_usuario`) VALUES
-(8, 'Isle of Man TT Course', 'Cuidaofunciona', 'Motos', '⬛   Solo expertos', '65b6389f8a82e_isleOfManTT.gpx', '60732.4758', '6.8', '431.8', '887.5', '888', 'Braddan', 'Middle', 'Isla de Man', 65),
-(9, '2023 Dakar Stage 1 (The Rugged', 'Para principiantes', 'Coches', '🟩   Facil', '65b639cf1dbbb_2023-dakar-stage-1-the-rugged-rides.gpx', '1061316.63', '-94.386', '2193.528', '11799.267', '11081.414', 'Azzaba', 'Sefrú', 'Marruecos', 65),
-(10, 'Circuito de Nürburgring', 'facil facil', 'Coches', '🟩   Facil', '65b646d6ce5e8_nurburgring.gpx', '20664.1190', '328.917', '630.723', '676.7', '676.732', 'Herschbroich', 'Renania-Palatinado', 'Alemania', 65),
-(11, 'Ruta Inglesa', 'inglesianos', 'Hiking', '🟩   Facil', '65b648f71e7f6_GlyWay.gpx', '199947.429', '0', '0', '0', '0', 'Llanwnnog', 'Gales', 'Reino Unido', 65);
+(37, 'Bike Sebring - Racetrack', 'qwEDAWEF', '🟨   Intermedio', 'Running', '65c60b1c5a0f1_Bike_Sebring_-_Racetrack.gpx', '8692.16730', '16.6', '19.9', '9.7', '9.6', '', 'Florida', 'United States', 65),
+(38, 'Wikiloc - 2023 Dakar Stage 1 (The Rugged Rides)', 'erwferfwerf', '🟥   Dificil', 'Motos', '65c60d4ba185c_2023-dakar-stage-1-the-rugged-rides.gpx', '1061316.63', '-94.386', '2193.528', '11799.267', '11081.414', 'Azzaba', 'Cercle de Sefrou دائرة صفرو', 'Morocco', 65),
+(39, 'Wikiloc - Circuito de Nürburgring', 'swertg', '🟩   Facil', 'Ski', '65c9d5e7dec8b_nurburgring.gpx', '20664.1190', '328.917', '630.723', '676.7', '676.732', 'Herschbroich', 'Rhineland-Palatinate', 'Germany', 65),
+(40, 'Isle of Man TT Course', 'fwerf', '🟩   Facil', 'Hiking', '65c9d5f461bed_isleOfManTT.gpx', '60732.4758', '6.8', '431.8', '887.5', '887.5', 'Braddan', 'Middle', 'Isle of Man', 65),
+(41, 'Wikiloc - Circuito de Nürburgring', 'wergf', '🟩   Facil', 'Hiking', '65c9d5fdafdac_nurburgring.gpx', '20664.1190', '328.917', '630.723', '676.7', '676.732', 'Herschbroich', 'Rhineland-Palatinate', 'Germany', 65);
 
 -- --------------------------------------------------------
 
@@ -108,7 +109,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `rutas`
 --
 ALTER TABLE `rutas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`

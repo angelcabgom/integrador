@@ -12,7 +12,6 @@ $estilosDinamicos = [
 ];
 
 include("headGlobal.php");
-
 ?>
 
 <main class="flex-grow-1 vh-100">

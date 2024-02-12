@@ -307,11 +307,11 @@
             echo "<div class='row'>";
             for ($i = 0; $i < $count; $i++) {
 
-                echo '<div class="col-md-6">
-                        <div class="dropdown-item text-start">
-                            <a href="http://localhost/integrador/code/vista/explorarPais.php">Carreras en ' . $paises[$i] . '</a>
+                echo "<div class='col-md-6'>
+                        <div class='dropdown-item text-start'>
+                            <a href='http://localhost/integrador/code/vista/explorarPais.php?pais={$paises[$i]}'>Carreras en " . $paises[$i] . "</a>
                         </div>
-                    </div>';
+                    </div>";
 
                 // Nueva row cada dos columnas
                 if (($i + 1) % 2 === 0 && $i !== $count - 1) {
