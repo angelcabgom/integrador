@@ -109,7 +109,7 @@ include("headGlobal.php");
 
     function mostrarOrg() {
         console.log(idOrg);
-        fetch(`http://localhost/integrador/code/servicios/rutas/getOrg.php?id=65`)
+        fetch(`http://localhost/integrador/code/servicios/rutas/getOrg.php?id=${idOrg}`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Error al obtener los datos');
