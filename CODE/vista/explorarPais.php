@@ -108,12 +108,12 @@ include("headGlobal.php");
             scrollWheelZoom: false
         });
 
-        // Add a tile layer to the map
+       
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '©OpenStreetMap contributors'
         }).addTo(map);
 
-        // Load GPX data for this route
+        
         loadGpxData(map, route);
     }
 
@@ -139,7 +139,6 @@ include("headGlobal.php");
         }
     }
 
-    // Call the fetchData function to initiate the process
     fetchData();
 </script>
 

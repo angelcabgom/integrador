@@ -12,15 +12,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
         if ($result) {
             $routes = array();
-
-            while ($row = $result->fetch_assoc()) {
-                $routes[] = array(
-                    'id' => $row['id'],
-                    'nombre' => $row['nombre'],
-                    'descripcion' => $row['descripcion'],
-                    'archivo' => $row['archivo'],
-                );
-            }
+            
+            $routes = $result->fetch_all(MYSQLI_ASSOC);
 
             header("HTTP/1.1 200 OK");
             echo json_encode($routes);

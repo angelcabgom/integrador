@@ -1,6 +1,9 @@
 <?php
 
 require("../modelo/funciones.php");
+require_once("../vendor/autoload.php");
+
+use Firebase\JWT\JWT;
 
 session_start();
 
@@ -15,18 +18,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_REQUEST['enviar'])) {
 
     $username = ["username" => $usernameInput];
 
-    /* El usuario tiene que ser un array para las consultas POST*/
-    /* inicioSesion devuelve un array con dos elementos si es true 
-        estoy almacenando los resultados en el array result para poder acceder al valor*/
-
+    // Verificar credenciales de inicio de sesión
     $result = inicioSesion($username, $passwordInput);
 
     if ($result[0]) {
         $userType = $result[1];
         $id = $result[2];
 
+        // Establecer variables de sesión
         $_SESSION['userType'] = $userType;
         $_SESSION['id'] = $id;
+
+        // Generar token JWT
+        $payload = array(
+            "userType" => $userType,
+            "id" => $id,
+            'exp' => time()+3600, 
+        );
+
+        $jwt = JWT::encode($payload, 'trekwikia', 'HS256');
+
+        // Almacenar token JWT en la sesión
+        $_SESSION['jwt'] = $jwt;
 
         session_write_close();
         header("Location: ../vista/paginaPrincipal.php");
